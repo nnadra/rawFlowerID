@@ -1,76 +1,91 @@
 "use client";
-import * as React from "react";
-import RedFlower from '../assets/hero-redFlower.svg'
-import WhiteFlower from '../assets/hero-whiteFlower.svg'
-import ImageHero from '../assets/img-hero.svg'
-import BlogPage from '../pages/BlogPage.jsx'
+import React, { useEffect, useState, useRef } from "react";
+import RedFlower from "../assets/hero-redFlower.svg";
+import WhiteFlower from "../assets/hero-whiteFlower.svg";
+import ImageHero from "../assets/img-hero.svg";
+import BlogPage from "../pages/BlogPage.jsx";
 import Contact from "./Contact.jsx";
 import Footer from "../component/common/Footer.jsx";
-
+import Hero from "./Hero.jsx";
+import Review from "./Review.jsx";
+import Popular from "./Popular.jsx";
 
 function Home() {
+  const [showFlowers, setShowFlowers] = useState(false);
+  const heroRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setShowFlowers(entry.isIntersecting);
+      },
+      { threshold: 0.3 }
+    );
+
+    if (heroRef.current) {
+      observer.observe(heroRef.current);
+    }
+
+    return () => {
+      if (heroRef.current) observer.unobserve(heroRef.current);
+    };
+  }, []);
+
   return (
-    <main className="flex overflow-hidden flex-col pb-24">
-      <div className="z-10 -mt-1.5 w-full max-md:max-w-full">
-        <div className="flex gap-5 max-md:flex-col">
-          <div className="w-[71%] max-md:ml-0 max-md:w-full">
-            <div className="w-full max-md:mt-10 max-md:max-w-full">
-              
-
-              <section className="mt-14 max-md:mt-10 max-md:max-w-full">
-                <div className="flex gap-5 max-md:flex-col">
-                  <div className="w-[45%] max-md:ml-0 max-md:w-full">
-                    <img
-                      src={RedFlower}
-                      alt="Decorative flower arrangement"
-                      className="object-contain grow w-full aspect-[1.57] max-md:mt-10"
-                    />
-                  </div>
-                  <div className="ml-5 w-[55%] max-md:ml-0 max-md:w-full">
-                    <div className="flex flex-col mt-20 w-full text-center text-yellow-950 max-md:mt-10 max-md:max-w-full">
-                      <h1 className="text-7xl font-[274] max-md:max-w-full max-md:text-4xl">
-                        A{" "}
-                        <span className="font-bold text-[#4e2a1e]">bloom</span>{" "}
-                        for{" "}
-                      </h1>
-                      <div className="flex flex-wrap gap-7 mt-4 items-center self-center whitespace-nowrap max-md:max-w-full">
-                        <span className="self-stretch my-auto text-7xl max-md:text-4xl">
-                          precious
-                        </span>
-                        <span className="self-stretch my-auto text-7xl underline font-[401] max-md:text-4xl">
-                          person.
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </section>
-            </div>
-          </div>
-
-          <aside className="ml-5 w-[29%] max-md:ml-0 max-md:w-full">
-            <div className="flex flex-col mt-10 w-full text-2xl text-center max-md:mt-10">
-              <img
-                src={WhiteFlower}
-                alt="Decorative element"
-                className="object-contain mt-9 w-full aspect-[1.12]"
-              />
-            </div>
-          </aside>
-        </div>
+    <main className="relative overflow-hidden">
+      {/* Sticky flowers */}
+      <div className="pointer-events-none fixed top-0 left-0 w-full h-0 z-30">
+        <img
+          src={RedFlower}
+          alt="Red Flower"
+          className={`w-50 lg:w-120 absolute top-50 left-0 lg:top-20  transition-all duration-700 ease-in-out ${
+            showFlowers
+              ? "opacity-100 translate-y-0"
+              : "opacity-0 -translate-y-10"
+          }`}
+        />
+        <img
+          src={WhiteFlower}
+          alt="White Flower"
+          className={`w-50 lg:w-120 absolute top-40 right-0 lg:top-10 transition-all duration-700 ease-in-out ${
+            showFlowers
+              ? "opacity-100 translate-y-0"
+              : "opacity-0 -translate-y-10"
+          }`}
+        />
       </div>
 
-      <img
-        src={ImageHero}
-        alt="Featured banner"
-        className="object-contain self-center mt-7 w-full rounded-2xl aspect-[2.84] max-w-[1300px] max-md:max-w-full"
-      />
+      <div className="pb-24">
+        {/* Hero Section */}
+        <section ref={heroRef} id="hero-section" className="pt-28 max-w-[1300px] mx-auto">
+          <div className="flex flex-col items-center text-yellow-950">
+            <h1 className="text-7xl font-[274] text-center max-md:text-4xl">
+              A <span className="font-bold text-[#4e2a1e]">bloom</span> for
+            </h1>
+            <div className="flex gap-4 mt-4 text-7xl font-veryvogue max-md:text-4xl">
+              <span>precious</span>
+              <span className="italic underline">person.</span>
+            </div>
+          </div>
+        </section>
 
-      <section className="pt-20">
-      <BlogPage />
-      <Contact/>
-      <Footer/>
-      </section>
+        {/* Banner */}
+        <img
+          src={ImageHero}
+          alt="Featured banner"
+          className="object-contain  mt-7 w-full rounded-2xl aspect-[2.84] max-w-[1300px] mx-auto max-md:max-w-full"
+        />
+
+        {/* Other Sections */}
+        <section className="pt-20">
+          <Hero />
+          <Popular />
+          <BlogPage />
+          <Review />
+          <Contact />
+          <Footer />
+        </section>
+      </div>
     </main>
   );
 }

@@ -1,6 +1,19 @@
+@font-face {
+  font-family: "VeryVogueDisplay";
+  src: url("/src/assets/fonts/very-vogue-display.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "VeryVogueDisplay";
+  src: url("/src/assets/fonts/very-vogue-display-italic.otf") format("opentype");
+  font-weight: 400;
+  font-style: italic;
+}  
+
 @import "tailwindcss";
-/* @import url('https://fonts.cdnfonts.com/css/sf-pro-display'); */
-/* 
-body {
-  font-family: 'SF Pro Display', sans-serif;
-} */
+
+@theme{
+  --font-veryvogue: VeryVogue, "display";
+}
