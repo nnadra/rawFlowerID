@@ -5,7 +5,7 @@ import WhiteFlower from "../assets/hero-whiteFlower.svg";
 import ImageHero from "../assets/img-hero.svg";
 import BlogPage from "../pages/BlogPage.jsx";
 import Contact from "./Contact.jsx";
-import Footer from "../component/common/Footer.jsx";
+import Footer from "../component/Footer.jsx";
 import Hero from "./About.jsx";
 import Review from "./Review.jsx";
 import Popular from "./Popular.jsx";

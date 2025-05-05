@@ -1,6 +1,6 @@
 import React from 'react'
-import ButtonDark from '../component/common/ButtonDark';
-import Kategori from '../component/common/Kategori';
+import ButtonDark from '../component/ButtonDark';
+import Kategori from '../component/Kategori';
 import ImgAbout from '../assets/img-about.svg'
 
 

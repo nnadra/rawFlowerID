@@ -1,15 +1,11 @@
 import React from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
-import Logo from '../../assets/logoo.svg'
-
-
-
-
+import Logo from '../assets/logoo.svg'
 
 const Navbar = () => {
   const navigate = useNavigate();
   return (
-    <div className="h-[80px] px-6 md:px-12 flex items-center justify-between">
+    <div className="px-6 md:px-12 flex items-center justify-between">
     
     
      <div className="flex gap-8 text-[#4E2A1E]">
@@ -19,10 +15,7 @@ const Navbar = () => {
 
      </div>
 
-
-     <div className="absolute left-1/2 transform -translate-x-1/2 mt-12">
        <img src={Logo} alt="logo" className='w-26 h-auto'/>
-     </div>
 
      <div className="flex gap-4">
 

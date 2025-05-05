@@ -1,0 +1,18 @@
+import { Search } from 'lucide-react'
+import React from 'react'
+
+const KategoriShop = () => {
+  return (
+    <div className='lg:flex items-center justify-between mt-10'>
+        <div className=''>
+            <button className='px-6 py-3 bg-amber-900 text-lg text-white rounded-lg me-4 mt-4 border-2 border-amber-900 font-bold'>+ Add custom bouquet</button>
+        </div>
+
+        <div className='flex items-center'>
+            <input type="text" placeholder="Search..." className='py-3 pe-50 ps-3 rounded-lg border-2 text-lg border-gray-400 mt-4 placeholder:text-gray-400' />
+        </div>
+    </div>
+  )
+}
+
+export default KategoriShop

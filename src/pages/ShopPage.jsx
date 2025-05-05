@@ -1,19 +1,23 @@
 import React from 'react'
 import { useNavigate } from "react-router-dom";
-import ButtonDark from '../component/common/ButtonDark'
+import SliderShop from '../component/SliderShop';
+import KategoriShop from '../component/KategoriShop';
+import CategoryShop from '../component/CategoryShop';
+import Footer from '../component/Footer';
+
 
 const ShopPage = () => {
-    const navigate = useNavigate();
-  return (
-    <div>
-        <button 
-            type="button" 
-            onClick={() => navigate("/detailproduk")}
-            className="bg-[#4E2A1E] text-white py-4 rounded-2xl font-medium hover:bg-[#3c2118] transition">
-            Sign In
-        </button>
-       </div>
-  )
+    // const navigate = useNavigate();
+    return (
+      <div className='bg-white'>
+      <div className='p-5 lg:p-10'>
+        <SliderShop />
+        <KategoriShop/>
+        <CategoryShop/>
+      </div>
+      <Footer/>
+      </div>
+    )
 }
 
 export default ShopPage

@@ -1,6 +1,6 @@
 import React from 'react'
-import CardPopular from '../component/common/CardPopular'
-import ButtonDark from '../component/common/ButtonDark'
+import CardPopular from '../component/CardPopular'
+import ButtonDark from '../component/ButtonDark'
 
 const Popular = () => {
   return (
