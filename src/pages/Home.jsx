@@ -6,9 +6,12 @@ import ImageHero from "../assets/img-hero.svg";
 import BlogPage from "../pages/BlogPage.jsx";
 import Contact from "./Contact.jsx";
 import Footer from "../component/common/Footer.jsx";
-import Hero from "./Hero.jsx";
+import Hero from "./About.jsx";
 import Review from "./Review.jsx";
 import Popular from "./Popular.jsx";
+import PackagePage from './PackagePage.jsx'
+
+import { Package } from "lucide-react";
 
 function Home() {
   const [showFlowers, setShowFlowers] = useState(false);
@@ -79,6 +82,7 @@ function Home() {
         {/* Other Sections */}
         <section className="pt-20">
           <Hero />
+          <PackagePage/>
           <Popular />
           <BlogPage />
           <Review />

@@ -21,7 +21,7 @@ const Navbar = () => {
 
 
      <div className="absolute left-1/2 transform -translate-x-1/2 mt-12">
-       <img src={Logo} alt=""/>
+       <img src={Logo} alt="logo" className='w-26 h-auto'/>
      </div>
 
      <div className="flex gap-4">
