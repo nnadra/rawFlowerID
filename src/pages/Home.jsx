@@ -3,7 +3,7 @@ import React, { useEffect, useState, useRef } from "react";
 import RedFlower from "../assets/hero-redFlower.svg";
 import WhiteFlower from "../assets/hero-whiteFlower.svg";
 import ImageHero from "../assets/img-hero.svg";
-import BlogPage from "../pages/BlogPage.jsx";
+import BlogPage from "./Blog.jsx";
 import Contact from "./Contact.jsx";
 import Footer from "../component/Footer.jsx";
 import Hero from "./About.jsx";
