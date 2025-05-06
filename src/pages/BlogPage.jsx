@@ -13,7 +13,7 @@ function BlogPage() {
             <div className="flex justify-between gap-10">
               <div className="text-8xl font-veryvogue font-[401] w-[186px] max-md:text-4xl">
                 Blog
-              </div>
+              </div>g
               <div className="text-2xl font-[274] max-w-[800px]">
                 Lorem ipsum dolor sit amet, I Love you but your are jamet.
                 consectetur adipiscing elit. Vivamus dictum arcu at ultrices
