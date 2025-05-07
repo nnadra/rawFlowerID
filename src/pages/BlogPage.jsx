@@ -4,7 +4,7 @@ import { blogPosts } from '../data/BlogPost';
 
 const BlogPage = () => {
   return (
-    <div className="bg-[#f7f6f3] text-[#1d1d1f] font-sans">
+    <div className="bg-white text-[#4E2A1E] font-sans">
       <div className="max-w-7xl mx-auto px-4 py-16">
         <h1 className="text-5xl font-bold mb-4">Blog</h1>
         <p className="text-lg mb-10 max-w-xl">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
@@ -37,7 +37,7 @@ const BlogPage = () => {
       </div>
 
       {/* Newsletter */}
-      <div className="bg-white py-16 border-t">
+      {/* <div className="bg-white py-16 border-t">
         <div className="max-w-6xl mx-auto px-4">
           <h2 className="text-3xl font-bold mb-4">Get the latest news into your inbox</h2>
           <p className="text-sm text-gray-500 max-w-lg mb-6">
@@ -48,7 +48,7 @@ const BlogPage = () => {
             <button className="bg-black text-white px-4 py-2 rounded-r-md">Subscribe</button>
           </form>
         </div>
-      </div>
+      </div> */}
 
       <Footer />
     </div>
