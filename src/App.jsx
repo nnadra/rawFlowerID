@@ -4,7 +4,8 @@ import Navbar from './component/Navbar'
 import Banner from './component/Banner'
 import SignIn from './pages/SignIn'
 import SignUp from './pages/SignUp'
-import Home from './pages/Home';
+import Home from './pages/Home'
+import { Toaster } from 'react-hot-toast';
 import Blog from './pages/Blog'
 import ShopPage from './pages/ShopPage'
 import DetailProduct from './pages/DetailProduct'
@@ -18,6 +19,7 @@ const AppContent = () => {
 
   return (
     <div className="bg-[#FFF5E3] min-h-screen">
+      <Toaster position="bottom-center" reverseOrder={false} />
       <Banner></Banner>
       {/* Navbar tampil kecuali di route tertentu */}
       {!hideNavbarRoutes.includes(location.pathname) && <Navbar />}
