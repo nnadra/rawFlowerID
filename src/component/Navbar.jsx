@@ -10,7 +10,7 @@ const Navbar = () => {
     
      <div className="flex gap-8 text-[#4E2A1E]">
      <NavLink to="/" className="hover:text-gray-400 cursor-pointer text-lg">Home</NavLink>
-     <NavLink to="/about" className="hover:text-gray-400 cursor-pointer text-lg">About Us</NavLink>
+     <NavLink to="/blogPage" className="hover:text-gray-400 cursor-pointer text-lg">Blog</NavLink>
      <NavLink to="/shop" className="hover:text-gray-400 cursor-pointer text-lg">Shop</NavLink>
 
      </div>
