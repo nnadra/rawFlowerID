@@ -53,7 +53,7 @@ const DetailBlog = () => {
       </div>
 
       {/* Related Articles */}
-      <div className="bg-gray-100 mt-20 py-12">
+      <div className="bg-[#FFF5E3] mt-20 py-12">
         <div className="max-w-6xl mx-auto px-6">
           <h3 className="text-2xl font-bold mb-6 text-center">Related Articles</h3>
           <div className="grid md:grid-cols-4 gap-6">
@@ -76,6 +76,7 @@ const DetailBlog = () => {
           </div>
         </div>
       </div>
+      
     </div>
   );
 };
