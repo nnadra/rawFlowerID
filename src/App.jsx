@@ -9,6 +9,7 @@ import Blog from './pages/Blog'
 import ShopPage from './pages/ShopPage'
 import DetailProduct from './pages/DetailProduct'
 import BlogPage from './pages/BlogPage'
+import DetailBlog from './pages/DetailBlog'
 
 
 const AppContent = () => {
@@ -27,6 +28,8 @@ const AppContent = () => {
         <Route path="/blog" element={<Blog />} />
         <Route path="/blogPage" element={<BlogPage />} />
         <Route path="/shop" element={<ShopPage />} />
+
+        <Route path="/detailBlog/:id" element={<DetailBlog />} />
         <Route path="/detailproduk" element={<DetailProduct />} />
         <Route path="/" element={<Home />} />
       </Routes>
