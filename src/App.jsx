@@ -9,6 +9,7 @@ import Blog from './pages/Blog'
 import ShopPage from './pages/ShopPage'
 import DetailProduct from './pages/DetailProduct'
 import BlogPage from './pages/BlogPage'
+import { Toaster } from 'react-hot-toast';
 
 
 const AppContent = () => {
@@ -17,6 +18,7 @@ const AppContent = () => {
 
   return (
     <div className="bg-[#FFF5E3] min-h-screen">
+      <Toaster position="bottom-center" />
       <Banner></Banner>
       {/* Navbar tampil kecuali di route tertentu */}
       {!hideNavbarRoutes.includes(location.pathname) && <Navbar />}

@@ -1,9 +1,34 @@
 import React from 'react'
 import ImgContact from '../assets/pict-contact.svg'
+import { toast } from "react-hot-toast";
+import emailjs from '@emailjs/browser'
 // import { useNavigate } from "react-router-dom";
 
 const Contact = () => {
     // const navigate = useNavigate();
+    const sendEmail = (e) => {
+      e.preventDefault();
+      console.log("SERVICE:", import.meta.env.VITE_SERVICE_ID,);
+      console.log("TEMPLATE:", import.meta.env.VITE_TEMPLATE_ID);
+      console.log("PUBLIC:", import.meta.env.VITE_PUBLIC_KEY);
+    
+      emailjs
+        .sendForm(
+        import.meta.env.VITE_SERVICE_ID,
+        import.meta.env.VITE_TEMPLATE_ID,
+        e.target,
+        import.meta.env.VITE_PUBLIC_KEY
+        )
+        .then(() => {
+          toast.success("Message sent!");
+          e.target.reset(); // Ini buat clear semua field form
+        })
+        .catch(() => {
+          toast.error("Failed to send message. Try again!");
+        });
+    };
+    
+
   return (
     <div className="min-h-screen flex flex-col md:flex-row bg-[#4E2A1E] p-6 md:p-12">
     {/* Image */}
@@ -25,12 +50,13 @@ const Contact = () => {
         Contact us to inquire about the beauty of Bouquet flowers
       </p>
   
-      <form className="space-y-6">
+      <form className="space-y-6" onSubmit={sendEmail}>
         {/* First and Last Name */}
         <div className="flex flex-col md:flex-row md:space-x-4 space-y-4 md:space-y-0">
           <input
             type="text"
             placeholder="First Name"
+            name="from_name"
             className="w-full rounded-md bg-[#FFF5E3] text-[#4E2A1E] py-3 px-4 placeholder:text-[#B19788]"
           />
           <input
@@ -45,11 +71,13 @@ const Contact = () => {
           <input
             type="email"
             placeholder="Email"
+            name="email_from"
             className="w-full rounded-md bg-[#FFF5E3] text-[#4E2A1E] py-3 px-4 placeholder:text-[#B19788]"
           />
           <input
             type="tel"
             placeholder="Phone Number"
+            name="number_from"
             className="w-full rounded-md bg-[#FFF5E3] text-[#4E2A1E] py-3 px-4 placeholder:text-[#B19788]"
           />
         </div>
@@ -59,6 +87,7 @@ const Contact = () => {
           <label className="text-[#FFF5E3] font-semibold mb-2 block">Message</label>
           <textarea
             placeholder="Message"
+            name='message'
             className="w-full rounded-md bg-[#FFF5E3] text-[#4E2A1E] py-3 px-4 placeholder:text-[#B19788] min-h-[150px]"
           />
         </div>
