@@ -7,6 +7,18 @@ import SignUp from './pages/SignUp'
 import Home from './pages/Home';
 import BlogPage from './pages/BlogPage'
 
+// fetch('http://127.0.0.1:8000/', {
+//   method: 'GET',
+//   headers: {
+//     Accept: 'application/json',
+//     'Content-Type': 'application/json',
+//   },
+//   body: JSON.stringify({
+//     firstParam: 'yourValue',
+//     secondParam: 'yourOtherValue',
+//   }),
+// });
+
 
 const AppContent = () => {
   const location = useLocation();

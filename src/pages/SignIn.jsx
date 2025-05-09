@@ -3,6 +3,17 @@ import { useNavigate } from "react-router-dom";
 import Logo from '../assets/logoo.svg';
 import PicSignin from '../assets/pict-signIn.svg';
 
+fetch('http://127.0.0.1:8000/api/login', {
+  method: 'POST', //method login = POST
+  headers: {
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify({
+    email: '',
+    password: '',
+  }),
+});
+
 const SignIn = () => {
   const navigate = useNavigate();
   return (

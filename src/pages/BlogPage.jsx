@@ -35,7 +35,7 @@ function BlogPage() {
 
           {/* Blog Besar */}
           <div className="relative flex flex-col px-9 pt-8 pb-12 w-full min-h-[487px] max-md:px-5 max-md:max-w-full z-10">
-          <img src="/src/assets/blog1-pict.png" className="absolute inset-0 w-full h-full object-cover rounded-2xl" />
+          <img src="/src/assets/blog1-pict.svg" className="absolute inset-0 w-full h-full object-cover rounded-2xl" />
             <div className="relative max-w-full">
               <div className="text-2xl text-[#ECDEC3]">BLOG | 22 JAN</div>
               <div className="text-5xl text-white font-[Playfair_Display] max-md:text-4xl">
