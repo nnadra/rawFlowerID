@@ -1,25 +1,24 @@
 import React from 'react'
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom'
 import Navbar from './component/Navbar'
+import NavbarLogin from './component/NavbarLogin'
 import Banner from './component/Banner'
 import SignIn from './pages/SignIn'
 import SignUp from './pages/SignUp'
-import Home from './pages/Home'
-import { Toaster } from 'react-hot-toast';
+import Home from './pages/Home';
 import Blog from './pages/Blog'
 import ShopPage from './pages/ShopPage'
 import DetailProduct from './pages/DetailProduct'
 import BlogPage from './pages/BlogPage'
-import DetailBlog from './pages/DetailBlog'
 
 
 const AppContent = () => {
-  const location = useLocation();
-  const hideNavbarRoutes = ['/signin', '/signup'];
+  const location = useLocation()
+  const hideNavbarRoutes = ['/signin', '/signup']
+  const user = JSON.parse(localStorage.getItem("user")) // cek user login apa belum
 
   return (
     <div className="bg-[#FFF5E3] min-h-screen">
-      <Toaster position="bottom-center" reverseOrder={false} />
       <Banner></Banner>
       {/* Navbar tampil kecuali di route tertentu */}
       {!hideNavbarRoutes.includes(location.pathname) && <Navbar />}
@@ -36,15 +35,15 @@ const AppContent = () => {
         <Route path="/" element={<Home />} />
       </Routes>
     </div>
-  );
-};
+  )
+}
 
 const App = () => {
   return (
     <Router>
       <AppContent />
     </Router>
-  );
-};
+  )
+}
 
 export default App;

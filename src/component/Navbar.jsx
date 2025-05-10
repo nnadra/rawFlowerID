@@ -20,7 +20,8 @@ const Navbar = () => {
      <div className="flex gap-4">
 
          <button onClick={() => navigate('/signin')} className="hidden md:block bg-[#4E2A1E] text-white font-medium text-base py-2 px-5 ">Sign In</button>
-         <button onClick={() => navigate('/signup')} className="hidden md:block text-[#4E2A1E] font-medium text-lg">Sign Up</button>     </div>
+         <button onClick={() => navigate('/signup')} className="hidden md:block text-[#4E2A1E] font-medium text-lg">Sign Up</button>
+     </div>
     
    </div>
   )
