@@ -15,7 +15,14 @@ const Register = () => {
       password: password,
     })
     .then(res => {
-      localStorage.setItem("user", JSON.stringify(res.data.user));
+      // Simpan data user ke localStorage biar bisa dipakai di navbar
+      const userData = {
+        name: nama, // atau bisa juga pakai res.data.user.name kalau backend kirim data lengkap
+        email: email
+      };
+      localStorage.setItem("user", JSON.stringify(userData));
+
+      // Arahkan ke halaman shop
       window.location.href = "/shop";
     })
     .catch(err => {
@@ -25,9 +32,24 @@ const Register = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <input type="text" placeholder="Nama" value={nama} onChange={(e) => setNama(e.target.value)} />
-      <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
-      <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
+      <input
+        type="text"
+        placeholder="Nama"
+        value={nama}
+        onChange={(e) => setNama(e.target.value)}
+      />
+      <input
+        type="email"
+        placeholder="Email"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+      />
+      <input
+        type="password"
+        placeholder="Password"
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+      />
       <button type="submit">Sign Up</button>
     </form>
   );

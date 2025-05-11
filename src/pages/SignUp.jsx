@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
 import axios from 'axios';
 import Logo from '../assets/logoo.svg';
@@ -7,24 +7,34 @@ import PicSignup from '../assets/pict-signUp.svg';
 const SignUp = () => {
   const navigate = useNavigate();
 
-  // State input
   const [nama, setNama] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [phone, setPhone] = useState('');
 
-  // Fungsi daftar
+  // 🔄 Auto-redirect ke shop kalo udah login
+  useEffect(() => {
+    const user = JSON.parse(localStorage.getItem("user"));
+    if (user) {
+      navigate("/shop");
+    }
+  }, []);
+
   const handleSignUp = async () => {
     try {
       const res = await axios.post('http://127.0.0.1:8000/api/register', {
         name: nama,
         email: email,
         password: password,
-        phone: phone, // opsional kalau API kamu support nomor
+        phone: phone,
       });
 
-      localStorage.setItem("user", JSON.stringify(res.data.user));
-      navigate("/"); // ganti ke halaman setelah sign up
+      // simpen user ke localStorage
+      const userData = res.data.user;
+      localStorage.setItem("user", JSON.stringify(userData));
+
+      // pindah ke halaman Shop
+      navigate("/shop");
     } catch (err) {
       console.error("Failed to sign up:", err);
       alert("Registration failed, check your data again.");
@@ -33,12 +43,11 @@ const SignUp = () => {
 
   return (
     <div className='h-screen flex overflow-hidden'>
-
       <div className="flex flex-col sm:w-[50%] w-[100%] items-center justify-center px-8">
         <div className="w-full max-w-md flex flex-col items-center px-5">
           <img src={Logo} alt="Logo" className="mb-6" />
           <h1 className="text-4xl font-semibold mb-4">Create Your Account</h1>
-          <form className="flex flex-col space-y-5  w-full mt-10">
+          <form className="flex flex-col space-y-5 w-full mt-10">
             <input 
               type="text" 
               placeholder="Your Name" 
@@ -96,9 +105,8 @@ const SignUp = () => {
           className="absolute w-[97%] h-[97%] object-cover m-3 rounded-lg"
         />
       </div>
-
     </div>
-  )
+  );
 }
 
 export default SignUp;
