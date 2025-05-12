@@ -21,7 +21,7 @@ const Contact = () => {
         )
         .then(() => {
           toast.success("Message sent!");
-          e.target.reset(); // Ini buat clear semua field form
+          e.target.reset();
         })
         .catch(() => {
           toast.error("Failed to send message. Try again!");
