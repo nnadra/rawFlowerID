@@ -19,9 +19,9 @@ const Navbar = () => {
   return (
     <div className="px-6 md:px-12 flex items-center justify-between">
       <div className="flex gap-8 text-[#4E2A1E]">
-        <NavLink to="/" className="hover:text-gray-400 cursor-pointer text-lg">Home</NavLink>
-        <NavLink to="/blogPage" className="hover:text-gray-400 cursor-pointer text-lg">Blog</NavLink>
-        <NavLink to="/shop" className="hover:text-gray-400 cursor-pointer text-lg">Shop</NavLink>
+        <NavLink to="/" className="hover:font-bold cursor-pointer text-lg">Home</NavLink>
+        <NavLink to="/blogPage" className="hover:font-bold cursor-pointer text-lg">Blog</NavLink>
+        <NavLink to="/shop" className="hover:font-bold cursor-pointer text-lg">Shop</NavLink>
       </div>
 
       <img src={Logo} alt="logo" className="w-26 h-auto" />
