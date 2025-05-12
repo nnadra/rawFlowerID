@@ -9,13 +9,18 @@ import Footer from "../component/Footer.jsx";
 import Hero from "./About.jsx";
 import Review from "./Review.jsx";
 import Popular from "./Popular.jsx";
-import PackagePage from './PackagePage.jsx'
-
-import { Package } from "lucide-react";
+import PackagePage from "./PackagePage.jsx";
+import Navbar from "../component/Navbar.jsx";
 
 function Home() {
   const [showFlowers, setShowFlowers] = useState(false);
   const heroRef = useRef(null);
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const storedUser = JSON.parse(localStorage.getItem("user"));
+    setUser(storedUser);
+  }, []);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -36,24 +41,21 @@ function Home() {
 
   return (
     <main className="relative overflow-hidden">
+
       {/* Sticky flowers */}
       <div className="pointer-events-none fixed top-0 left-0 w-full h-0 z-30">
         <img
           src={RedFlower}
           alt="Red Flower"
-          className={`w-50 lg:w-120 absolute top-50 left-0 lg:top-20  transition-all duration-700 ease-in-out ${
-            showFlowers
-              ? "opacity-100 translate-y-0"
-              : "opacity-0 -translate-y-10"
+          className={`w-50 lg:w-120 absolute top-50 left-0 lg:top-20 transition-all duration-700 ease-in-out ${
+            showFlowers ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-10"
           }`}
         />
         <img
           src={WhiteFlower}
           alt="White Flower"
           className={`w-50 lg:w-120 absolute top-40 right-0 lg:top-10 transition-all duration-700 ease-in-out ${
-            showFlowers
-              ? "opacity-100 translate-y-0"
-              : "opacity-0 -translate-y-10"
+            showFlowers ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-10"
           }`}
         />
       </div>
@@ -76,13 +78,13 @@ function Home() {
         <img
           src={ImageHero}
           alt="Featured banner"
-          className="object-contain  mt-7 w-full rounded-2xl aspect-[2.84] max-w-[1300px] mx-auto max-md:max-w-full"
+          className="object-contain mt-7 w-full rounded-2xl aspect-[2.84] max-w-[1300px] mx-auto max-md:max-w-full"
         />
 
         {/* Other Sections */}
         <section className="pt-20">
           <Hero />
-          <PackagePage/>
+          <PackagePage />
           <Popular />
           <BlogPage />
           <Review />
