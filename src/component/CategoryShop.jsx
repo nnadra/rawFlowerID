@@ -4,6 +4,7 @@ import DropDownShop from './DropDownShop';
 import publicAxios from '../pages/api/axios';
 
 const CategoryShop = () => {
+  // parameter 1: isi sekarang, parameter 2: buat ubah isi parameter 1
   const [products, setProducts] = useState([]);
 
   // Fetch data produk dari API

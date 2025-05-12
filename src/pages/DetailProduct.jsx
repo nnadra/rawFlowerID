@@ -85,8 +85,14 @@ export default function DetailProduct() {
             <div>
               <h2 className="font-medium text-[#4E2A1E]">Paper color</h2>
               <div className="flex gap-3 mt-2">
-                {[paper1, paper2, paper3].map((paper, i) => (
-                  <img key={i} src={paper} alt={`paper-${i}`} className="w-10 h-10 rounded object-cover" />
+                {detailProduct?.colors?.map((color, i) => (
+                  <img
+                    key={i}
+                    src={color.image}
+                    alt={color.name}
+                    className="w-10 h-10 rounded object-cover"
+                    title={color.name}
+                  />
                 ))}
               </div>
             </div>
