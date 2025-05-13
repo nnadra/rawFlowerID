@@ -17,3 +17,9 @@
 @theme{
   --font-veryvogue: VeryVogue, "display";
 }
+
+/* Import Flowbite */
+@import "flowbite/src/themes/default";
+
+/* Import plugin Flowbite */
+@plugin "flowbite/plugin";
