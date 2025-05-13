@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import Logo from '../assets/logoo.svg';
 import { Heart, ShoppingCart } from 'lucide-react'
 
 const NavbarLogin = () => {
+  const navigate = useNavigate();
   const [userName, setUserName] = useState('');
 
   useEffect(() => {
@@ -24,7 +25,7 @@ const NavbarLogin = () => {
 
       <div className="flex text-[#4E2A1E] items-center gap-4">
         <button><Heart size={30}/></button>
-        <button><ShoppingCart size={30}/></button>
+        <button onClick={() => navigate('/cart')}><ShoppingCart size={30}/></button>
       </div>
     </div>
   );

@@ -11,6 +11,7 @@ import ShopPage from './pages/ShopPage'
 import DetailProduct from './pages/DetailProduct'
 import BlogPage from './pages/BlogPage'
 import DetailBlog from './pages/DetailBlog'
+import Cart from './component/Cart'
 
 // fetch('http://127.0.0.1:8000/', {
 //   method: 'GET',
@@ -47,6 +48,7 @@ const AppContent = () => {
         <Route path="/blogPage" element={<BlogPage />} />
         <Route path="/shop" element={<ShopPage />} />
         <Route path="/detailBlog" element={<DetailBlog />} />
+        <Route path="/cart" element={<Cart />} />
         <Route path="/detailproduk/:id" element={<DetailProduct />} />
         <Route path="/" element={<Home />} />
       </Routes>
