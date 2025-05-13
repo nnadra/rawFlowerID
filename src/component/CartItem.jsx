@@ -1,6 +1,11 @@
 import { X, Plus, Minus } from "lucide-react";
+import { useState } from "react";
 
 const CartItem = ({ image, title, description, price }) => {
+  const [isCartOpen, setIsCartOpen] = useState(true); // default true biar kelihatan
+
+  if (!isCartOpen) return null; // cart hilang saat false
+
   return (
     <div className="py-4 border-b border-[#cdb8a1] flex items-start gap-4">
       <img src={image} alt={title} className="w-[60px] h-[60px] object-cover rounded" />
@@ -10,8 +15,8 @@ const CartItem = ({ image, title, description, price }) => {
         <p className="text-sm text-[#3e1f1f]">Rp {price.toLocaleString("id-ID")}</p>
       </div>
       <div className="flex flex-col items-end justify-between h-full">
-        <button>
-          <X className="w-5 h-5 text-[#3e1f1f]" />
+        <button onClick={() => setIsCartOpen(false)}> 
+          < X className="w-5 h-5 text-[#3e1f1f]" />
         </button>
         <div className="mt-6 flex items-center gap-3 border px-3 py-[2px] rounded text-[#3e1f1f]">
           <Minus className="w-4 h-4 cursor-pointer" />
