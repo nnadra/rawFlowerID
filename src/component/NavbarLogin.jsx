@@ -22,7 +22,7 @@ const NavbarLogin = () => {
 
       <img src={Logo} alt="logo" className="w-26 h-auto" />
 
-      <div className="flex items-center gap-4">
+      <div className="flex text-[#4E2A1E] items-center gap-4">
         <button><Heart size={30}/></button>
         <button><ShoppingCart size={30}/></button>
       </div>
