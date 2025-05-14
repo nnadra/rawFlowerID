@@ -6,6 +6,7 @@ const Navbar = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const [userName, setUserName] = useState('');
+  const [dropdownOpen, setDropdownOpen] = useState(false);
 
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem('user'));
@@ -17,7 +18,7 @@ const Navbar = () => {
   const isLandingPage = location.pathname === '/';
 
   return (
-    <div className="px-6 md:px-12 flex items-center justify-between">
+    <div className="relative z-100 px-6 md:px-12 flex items-center justify-between">
       <div className="flex gap-8 text-[#4E2A1E]">
         <NavLink to="/" className="hover:font-bold cursor-pointer text-lg">Home</NavLink>
         <NavLink to="/blogPage" className="hover:font-bold cursor-pointer text-lg">Blog</NavLink>
@@ -37,30 +38,40 @@ const Navbar = () => {
             </button>
           </>
         ) : userName ? (
-          <div>
-              <div className="flex gap-5">
-                <div className="h-10 w-10 rounded-full bg-amber-900"/>
-                <button 
-                  id="dropdownButton"
-                  data-dropdown-toggle="dropdownMenu"
-                  className="text-white bg-amber-800 hover:bg-amber-900 focus:ring-4 focus:outline-none focus:ring-amber-950 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center" type="button">
-                  {userName}
-                  <svg NameName="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
-                  </svg>
-                </button> 
-              </div>
-
-            {/* Dropdown Menu */}
-            <div id="dropdownMenu" className="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow-sm w-44 dark:bg-gray-700 dark:divide-gray-600">
-              <div className="px-4 py-3 text-sm text-gray-900 dark:text-white">
-                <div>{userName}</div>
-                <div className="font-medium truncate">name@flowbite.com</div>
-              </div>
-              <div className="py-2">
-                <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign out</a>
-              </div>
+          <div className="relative">
+            <div className="flex gap-5">
+              <div className="h-10 w-10 rounded-full bg-amber-900" />
+              <button
+                onClick={() => setDropdownOpen(!dropdownOpen)}
+                className="text-white bg-amber-800 hover:bg-amber-900 focus:ring-4 focus:outline-none focus:ring-amber-950 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center"
+                type="button"
+              >
+                {userName}
+                <svg className="w-2.5 h-2.5 ml-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                  <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 1 4 4 4-4"/>
+                </svg>
+              </button>
             </div>
+
+            {dropdownOpen && (
+              <div className="absolute right-0 mt-2 z-10 bg-white divide-y divide-gray-100 rounded-lg shadow-sm w-44 dark:bg-gray-700 dark:divide-gray-600">
+                <div className="px-4 py-3 text-sm text-gray-900 dark:text-white">
+                  <div>{userName}</div>
+                </div>
+                <div className="py-2">
+                  <button
+                    onClick={() => {
+                      localStorage.removeItem('user');
+                      navigate('/');
+                      window.location.reload(); // refresh state
+                    }}
+                    className="w-full text-left block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
+                  >
+                    Sign out
+                  </button>
+                </div>
+              </div>
+            )}
           </div>
         ) : null}
       </div>
