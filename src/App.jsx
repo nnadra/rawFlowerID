@@ -12,6 +12,7 @@ import DetailProduct from './pages/DetailProduct'
 import BlogPage from './pages/BlogPage'
 import DetailBlog from './pages/DetailBlog'
 import Cart from './component/Cart'
+import Custom from './pages/Custom'
 
 // fetch('http://127.0.0.1:8000/', {
 //   method: 'GET',
@@ -50,6 +51,7 @@ const AppContent = () => {
         <Route path="/detailBlog" element={<DetailBlog />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/detailproduk/:id" element={<DetailProduct />} />
+        <Route path="/customBouquet" element={<Custom/>} />
         <Route path="/" element={<Home />} />
       </Routes>
     </div>
