@@ -6,6 +6,7 @@ import { Heart, ShoppingCart } from 'lucide-react'
 const NavbarLogin = () => {
   const navigate = useNavigate();
   const [userName, setUserName] = useState('');
+  const [isCartOpen, setIsCartOpen] = useState(false);
 
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem('user'));
@@ -25,7 +26,11 @@ const NavbarLogin = () => {
 
       <div className="flex items-center gap-4">
         <button><Heart size={30}/></button>
-        <button onClick={() => navigate('/cart')}><ShoppingCart size={30}/></button>
+        <button onClick={() => setIsCartOpen(true)}>
+        <ShoppingCart size={30} />
+      </button>
+
+      {isCartOpen && <Cart setIsCartOpen={setIsCartOpen} />}
       </div>
     </div>
   );
