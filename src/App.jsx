@@ -12,6 +12,7 @@ import DetailProduct from './pages/DetailProduct'
 import BlogPage from './pages/BlogPage'
 import DetailBlog from './pages/DetailBlog'
 import Cart from './component/Cart'
+import { useCart } from './component/CartContext'
 
 // fetch('http://127.0.0.1:8000/', {
 //   method: 'GET',
@@ -30,6 +31,9 @@ const AppContent = () => {
   const location = useLocation()
   const hideNavbarRoutes = ['/signin', '/signup']
   const user = JSON.parse(localStorage.getItem("user") || "null")
+  const { isCartOpen, setIsCartOpen } = useCart(); // ini dia
+   // Path yang boleh munculin popup cart
+  const canShowCartPopup = location.pathname === '/shop' || location.pathname.includes('/detailproduk')
 
   return (
     <div className="bg-[#FFF5E3] min-h-screen">
@@ -52,6 +56,9 @@ const AppContent = () => {
         <Route path="/detailproduk/:id" element={<DetailProduct />} />
         <Route path="/" element={<Home />} />
       </Routes>
+
+      {/* Tampilkan popup Cart HANYA di /shop & /detailproduk/:id */}
+      {canShowCartPopup && isCartOpen && <Cart onClose={() => setIsCartOpen(false)} />}
     </div>
   )
 }

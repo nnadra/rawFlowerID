@@ -15,6 +15,7 @@ import paper3 from '../assets/white-paper.svg';
 import Footer from '../component/Footer';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
+import { useCart } from '../component/CartContext';
 
 
 export default function DetailProduct() {
@@ -23,6 +24,7 @@ export default function DetailProduct() {
   const [liked, setLiked] = useState(false); // buat toggle love button 
   const [activeTab, setActiveTab] = useState('detail'); 
   const [activeImg, setActiveImg] = useState(null);
+  const { addToCart } = useCart();
 
   useEffect(() => {
     axios.get(`http://localhost:8000/api/products/${id}/detail`)
@@ -113,7 +115,14 @@ export default function DetailProduct() {
 
             {/* Button Add to Cart + Love */}
             <div className="flex items-center gap-4 mt-6">
-              <button className="bg-[#4E2A1E] text-white px-10 py-2 rounded-lg text-lg hover:bg-[#3c2218] transition">
+              <button  onClick={() => addToCart({
+                id: detailProduct.id,
+                image: detailProduct.image,
+                title: detailProduct.title,
+                description: detailProduct.description,
+                price: detailProduct.price,
+              })}
+              className="bg-[#4E2A1E] text-white px-10 py-2 rounded-lg text-lg hover:bg-[#3c2218] transition">
                 Add to cart
               </button>
               <button

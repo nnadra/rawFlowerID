@@ -147,7 +147,7 @@ const Cart = () => {
           </button>
           {/* Tombol checkout (belum ada aksi) */}
           <button className="flex-1 bg-[#3e1f1f] text-white py-2 rounded text-base">
-            Continue Shopping
+            Checkout
           </button>
         </div>
       </div>
