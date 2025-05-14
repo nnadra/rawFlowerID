@@ -73,9 +73,13 @@ export default function DetailProduct() {
           <div className="w-full md:w-1/2 space-y-5 pt-12">
             {/* Tag kategori */}
             <div className="flex gap-2">
-              {['Popular', 'Fresh Flower'].map((tag, i) => (
-                <span key={i} className="bg-[#4E2A1E] text-white px-3 py-1 rounded-full text-sm">{tag}</span>
-              ))}
+              {/* contoh conditional rendering yg ga perlu if-else */}
+              {detailProduct?.popular && (
+                <span className="bg-[#4E2A1E] text-white px-3 py-1 rounded-full text-sm">Popular</span>
+              )}
+              {detailProduct?.category && (
+                <span className="bg-[#4E2A1E] text-white px-3 py-1 rounded-full text-sm">{detailProduct.category}</span>
+              )}
             </div>
 
             <h1 className="text-3xl font-semibold text-[#4E2A1E]">{detailProduct?.name}</h1>
@@ -158,8 +162,13 @@ export default function DetailProduct() {
 
               <div className="text-sm space-y-1 text-[#4E2A1E]">
                 <p><strong>Flower Type :</strong> Sunflower</p>
-                <p><strong>Type :</strong> Fresh Flower</p>
-                <p><strong>Paper Color :</strong> Pink, Brown, White</p>
+                <p><strong>Type :</strong> {detailProduct?.category || '-'}</p>
+                <p><strong>Paper Color :</strong> {detailProduct?.colors?.map((color, i) => (
+                  <span key={i}>
+                    {color.name}{i !== detailProduct.colors.length - 1 ? ', ' : ''}
+                  </span>
+                )) || '-'}
+                </p>
                 <p><strong>Additional :</strong> Ribbon, Thanks card, Card holder</p>
                 <p><strong>Notes :</strong> Bunga bertahan 20 juta hari</p>
               </div>

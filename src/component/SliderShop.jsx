@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import axios from "axios";
 
 const slides = [
   {
@@ -23,6 +24,7 @@ const slides = [
 ];
 
 export default function SliderShop() {
+  const [slides, setSlides] = useState([]);
   const [current, setCurrent] = useState(0);
 
   const nextSlide = () => {
@@ -33,12 +35,21 @@ export default function SliderShop() {
     setCurrent((prev) => (prev === 0 ? slides.length - 1 : prev - 1));
   };
 
+   // Fetch data dari API
+  useEffect(() => {
+    axios.get("http://localhost:8000/api/slider") // ganti URL sesuai base API kamu
+      .then((res) => {
+        setSlides(res.data.data); // karena kamu pakai resource collection, datanya ada di res.data.data
+      })
+      .catch((err) => console.error(err));
+  }, []);
+
   useEffect(() => {
     const interval = setInterval(() => {
       nextSlide();
     }, 5000);
     return () => clearInterval(interval);
-  }, [current]);
+  }, [current, slides.length]);
 
   return (
     <div className="relative h-[400px] mx-auto overflow-hidden rounded-2xl shadow-2xl">
@@ -55,8 +66,8 @@ export default function SliderShop() {
             />
             <div className="absolute inset-0 bg-black/30 flex flex-col justify-center p-6 text-white">
               <h2 className="lg:text-5xl text-3xl italic font-veryvogue">{slide.title}</h2>
-              <h3 className="lg:text-5xl text-3xl italic mb-5 font-veryvogue">{slide.subtitle}</h3>
-              <p className="max-w-lg text-sm">{slide.desc}</p>
+              {/* <h3 className="lg:text-5xl text-3xl italic mb-5 font-veryvogue">{slide.subtitle}</h3> */}
+              <p className="max-w-lg text-sm">{slide.description}</p>
             </div>
           </div>
         ))}
