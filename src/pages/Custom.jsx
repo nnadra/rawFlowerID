@@ -5,7 +5,7 @@ import DragAndDrop from '../component/DragAndDrop'
 
 const Custom = () => {
   return (
-    <div className='lg:flex'>
+    <div className='lg:flex overflow-hidden'>
       <div className=''>
         <DragAndDrop/>
       </div>

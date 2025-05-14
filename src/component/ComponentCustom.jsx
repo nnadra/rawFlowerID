@@ -126,8 +126,8 @@ const ComponentCustom = () => {
     };
 
   return (
-    <div className='w-fit bg-[#E5D5B7]'>
-        <div className='p-5'>
+    <div className='bg-[#E5D5B7]'>
+        <div className='p-10'>
             <h1 className='text-3xl my-7 font-bold text-amber-950'>Custom Boquet</h1>
         <div className='mt-5'>
           <div className='flex items-center flex-row'>
@@ -150,7 +150,7 @@ const ComponentCustom = () => {
           <div className='mt-10'>{tabContent[activeTab]}</div>
         </div>
       </div>
-      <div className=' w-full bg-[#E5D5B7] p-5'>
+      <div className='bg-[#E5D5B7] p-5'>
           <div className='flex justify-between'>
             <p className='text-2xl'>Price: </p>
             <p className='text-2xl font-bold'>Rp 300.000</p>
