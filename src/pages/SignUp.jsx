@@ -46,39 +46,52 @@ const SignUp = () => {
       <div className="flex flex-col sm:w-[50%] w-[100%] items-center justify-center px-8">
         <div className="w-full max-w-md flex flex-col items-center px-5">
           <img src={Logo} alt="Logo" className="mb-6" />
-          <h1 className="text-4xl font-semibold mb-4">Create Your Account</h1>
+          <h1 className="text-4xl font-semibold mb-4 lg:text-left text-center">Create Your Account</h1>
           <form className="flex flex-col space-y-5 w-full mt-10">
             <input 
               type="text" 
               placeholder="Your Name" 
-              className="px-5 py-4 border border-[#4E2A1E] rounded-2xl"
+              className={`px-5 py-4 rounded-2xl ${
+                nama ? 'bg-white text-black border border-[#4E2A1E]' : 'bg-[#E5D5B7] text-[#AE968E]'
+              }`}
               value={nama}
               onChange={(e) => setNama(e.target.value)}
+              required
             />
 
             <input 
               type="text" 
               placeholder="Email" 
-              className="px-5 py-4 bg-[#E5D5B7] text-[#AE968E] rounded-2xl"
+              className={`px-5 py-4 rounded-2xl ${
+                email ? 'bg-white text-black border border-[#4E2A1E]' : 'bg-[#E5D5B7] text-[#AE968E]'
+              }`}
               value={email}
               onChange={(e) => setEmail(e.target.value)}
+              required
             />
 
             <input 
               type="password" 
               placeholder="Password" 
-              className="px-4 py-4 bg-[#E5D5B7] text-[#AE968E] rounded-2xl"
+              className={`px-4 py-4 rounded-2xl ${
+                password ? 'bg-white text-black border border-[#4E2A1E]' : 'bg-[#E5D5B7] text-[#AE968E]'
+              }`}
               value={password}
               onChange={(e) => setPassword(e.target.value)}
+              required
             />
 
             <input 
               type="number" 
               placeholder="Phone number" 
-              className="px-4 py-4 bg-[#E5D5B7] text-[#AE968E] rounded-2xl"
+              className={`px-4 py-4 rounded-2xl ${
+                phone ? 'bg-white text-black border border-[#4E2A1E]' : 'bg-[#E5D5B7] text-[#AE968E]'
+              }`}
               value={phone}
               onChange={(e) => setPhone(e.target.value)}
+              required
             />
+
 
             <button 
               type="button" 
@@ -91,8 +104,8 @@ const SignUp = () => {
             <button 
               type="button" 
               onClick={() => navigate("/signin")}
-              className='text-center text-[#AC8A82]'>
-              Already have an account? Sign in
+              className='text-center text-[#AC8A82] cursor-pointer' >
+              Already have an account? <span className='font-bold'>Sign in</span>
             </button>
           </form>
         </div>

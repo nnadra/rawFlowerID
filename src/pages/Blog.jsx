@@ -26,7 +26,7 @@ function Blog() {
               <button 
                  type="button" 
                  onClick={() => navigate("/blogPage")}
-                className="pe-4">More Blog</button>
+                className="pe-4 cursor-pointer">More Blog</button>
               <img
                 src="https://cdn.builder.io/api/v1/image/assets/TEMP/d3ef321fd6883a3ad8a349d3f1fad5452c527bd1?placeholderIfAbsent=true&apiKey=622a4732b1024e68a81d69626964c09a"
                 className="w-6 object-contain"
@@ -56,7 +56,7 @@ function Blog() {
               </div>
 
               <div className="flex items-center gap-2 px-8 py-2.5 lg:bg-[#ECDEC3] bg-[#54321A] text-white rounded-lg lg:text-yellow-950 max-md:px-5">
-                <button className="text-lg font-medium">Read Blog</button>
+                <button className="text-lg font-medium cursor-pointer">Read Blog</button>
                 <ArrowRight className="w-5 h-5" />
               </div>
             </div>
@@ -83,7 +83,7 @@ function Blog() {
                   </div>
 
                   <div className="mt-10">
-                    <button className="flex items-center gap-2 px-6 py-3 bg-[#54321A] rounded-lg text-white text-lg font-semibold">
+                    <button className="flex cursor-pointer items-center gap-2 px-6 py-3 bg-[#54321A] rounded-lg text-white text-lg font-semibold">
                       Read Blog
                       <ArrowRight className="w-5 h-5" />
                     </button>
@@ -107,7 +107,7 @@ function Blog() {
                   </div>
 
                   <div className="mt-10">
-                    <button className="flex items-center gap-2 px-6 py-3 bg-[#54321A] rounded-lg text-white text-lg font-semibold">
+                    <button className="flex cursor-pointer items-center gap-2 px-6 py-3 bg-[#54321A] rounded-lg text-white text-lg font-semibold">
                       Read Blog
                       <ArrowRight className="w-5 h-5" />
                     </button>
@@ -131,7 +131,7 @@ function Blog() {
                   </div>
 
                   <div className="mt-10">
-                    <button className="flex items-center gap-2 px-6 py-3 bg-[#54321A] rounded-lg text-white text-lg font-semibold">
+                    <button className="flex cursor-pointer items-center gap-2 px-6 py-3 bg-[#54321A] rounded-lg text-white text-lg font-semibold">
                       Read Blog
                       <ArrowRight className="w-5 h-5" />
                     </button>

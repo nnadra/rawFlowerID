@@ -49,10 +49,10 @@ const Navbar = () => {
       <div className="flex gap-4 items-center">
         {!userName && isLandingPage ? (
           <>
-            <button onClick={() => navigate('/signin')} className="hidden md:block bg-[#4E2A1E] text-white font-medium text-base py-2 px-5">
+            <button onClick={() => navigate('/signin')} className="hidden md:block bg-[#4E2A1E] text-white font-medium text-base py-2 px-5 cursor-pointer">
               Sign In
             </button>
-            <button onClick={() => navigate('/signup')} className="hidden md:block text-[#4E2A1E] font-medium text-lg">
+            <button onClick={() => navigate('/signup')} className="hidden md:block text-[#4E2A1E] font-medium text-lg cursor-pointer">
               Sign Up
             </button>
             <div className='lg:hidden md:hidden text-[#4E2A1E]' onClick={() => navigate('/signin')}>
