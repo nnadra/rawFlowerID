@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Logo from '../assets/logoo.svg';
-import { Heart, ShoppingCart } from 'lucide-react'
+import { Heart, ShoppingCart } from 'lucide-react';
+import Cart from './Cart';
 
 const NavbarLogin = () => {
   const navigate = useNavigate();
   const [userName, setUserName] = useState('');
-  const [isCartOpen, setIsCartOpen] = useState(false)
-
+  const [isCartOpen, setIsCartOpen] = useState(false);
 
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem('user'));
@@ -25,9 +25,13 @@ const NavbarLogin = () => {
 
       <img src={Logo} alt="logo" className="w-26 h-auto" />
 
-      <div className="flex items-center gap-4">
+      <div className="flex text-[#4E2A1E] items-center gap-4">
         <button><Heart size={30}/></button>
-        <button onClick={() => setIsCartOpen(true)}><ShoppingCart size={30}/></button>
+        <button onClick={() => setIsCartOpen(true)}>
+        <ShoppingCart size={30} />
+      </button>
+
+      {isCartOpen && <Cart setIsCartOpen={setIsCartOpen} />}
       </div>
     </div>
   );

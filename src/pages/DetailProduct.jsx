@@ -3,19 +3,11 @@ import { useEffect, useState } from 'react';
 import { FiHeart } from 'react-icons/fi';
 import { FaHeart } from 'react-icons/fa';
 
-// Gambar produk & paper-nya
-import product1 from '../assets/sunflower.svg';
-import product2 from '../assets/sunflower1.svg';
-import product3 from '../assets/sunflower2.svg';
-import product4 from '../assets/sunflower3.svg';
-
-import paper1 from '../assets/brown-paper.svg';
-import paper2 from '../assets/rose-paper.svg';
-import paper3 from '../assets/white-paper.svg';
 import Footer from '../component/Footer';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import { useCart } from '../component/CartContext';
+import toast from 'react-hot-toast';
 
 
 export default function DetailProduct() {
@@ -115,12 +107,14 @@ export default function DetailProduct() {
 
             {/* Button Add to Cart + Love */}
             <div className="flex items-center gap-4 mt-6">
-              <button  onClick={() => addToCart({
-                id: detailProduct.id,
-                image: detailProduct.image,
-                title: detailProduct.title,
-                description: detailProduct.description,
-                price: detailProduct.price,
+              <button  onClick={() =>
+              addToCart({
+                product_id: detailProduct.id,
+                quantity: 1, // default 1
+              }).then(() => {
+                toast.success('Produk berhasil ditambahkan ke cart!');
+              }).catch(() => {
+                toast.error('Gagal menambahkan produk ke cart!');
               })}
               className="bg-[#4E2A1E] text-white px-10 py-2 rounded-lg text-lg hover:bg-[#3c2218] transition">
                 Add to cart

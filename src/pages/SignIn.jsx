@@ -16,6 +16,7 @@ fetch('http://127.0.0.1:8000/api/login', {
 
 const SignIn = () => {
   const navigate = useNavigate();
+  
   return (
     
     <div className="h-screen flex overflow-hidden bg-[#FFF5E3] justify-between">
