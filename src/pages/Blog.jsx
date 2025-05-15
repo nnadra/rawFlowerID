@@ -7,22 +7,22 @@ function Blog() {
   const navigate = useNavigate();
   return (
     <div className="flex flex-col overflow-hidden bg-yellow-50">
-      <div className="z-10 flex flex-col self-center w-full p-20">
+      <div className="z-10 flex flex-col self-center w-full lg:p-20 p-5">
 
         {/* Hero Section */}
         
-          <div className="flex items-center justify-between">
-            <div className="flex justify-between gap-10">
-              <div className="text-8xl font-veryvogue font-[401] w-[186px] max-md:text-4xl">
+          <div className="lg:flex items-center justify-between">
+            <div className="lg:flex justify-between gap-10">
+              <div className="text-8xl mb-3 lg:mb-0 font-veryvogue font-[401] w-[186px] max-md:text-4xl">
                 Blog
               </div>
-              <div className="text-2xl font-[274] max-w-[800px]">
+              <div className="lg:text-2xl mb-3 lg:mb-0 text-md font-[274] max-w-[800px]">
                 Lorem ipsum dolor sit amet, I Love you but your are jamet.
                 consectetur adipiscing elit. Vivamus dictum arcu at ultrices
                 semper. Nulla congue tempus
               </div>
             </div>
-            <div className="flex rounded-lg items-center px-5 py-3 text-xl text-yellow-50 bg-yellow-950">
+            <div className="flex rounded-lg justify-between items-center px-5 py-3 text-xl text-yellow-50 bg-yellow-950">
               <button 
                  type="button" 
                  onClick={() => navigate("/blogPage")}
@@ -42,20 +42,20 @@ function Blog() {
           <div className="relative flex flex-col px-9 pt-8 pb-12 w-full min-h-[487px] max-md:px-5 max-md:max-w-full z-10">
           <img src="/src/assets/blog1-pict.png" className="absolute inset-0 w-full h-full object-cover rounded-2xl" />
             <div className="relative max-w-full">
-              <div className="text-2xl text-[#ECDEC3]">BLOG | 22 JAN</div>
+              <div className="lg:text-2xl text-lg lg:text-[#ECDEC3] text-white">Blog | 22 January</div>
               <div className="text-5xl text-white font-[Playfair_Display] max-md:text-4xl">
                 How To Make Bouquet
               </div>
             </div>
 
             <div className="relative flex flex-wrap justify-between items-end mt-56 text-2xl max-md:mt-10 max-md:max-w-full">
-              <div className="text-white font-[274] w-[705px] max-md:max-w-full">
+              <div className="text-white font-[274] w-[705px] max-md:max-w-full hidden lg:block">
                 Lorem ipsum dolor sit amet, I Love you but your are jamet.
                 consectetur adipiscing elit. Vivamus dictum arcu at ultrices
                 semper. Nulla congue tempus quam, in interdum dui vestibulum ac.
               </div>
 
-              <div className="flex items-center gap-2 px-8 py-2.5 bg-[#ECDEC3] rounded-lg text-yellow-950 max-md:px-5">
+              <div className="flex items-center gap-2 px-8 py-2.5 lg:bg-[#ECDEC3] bg-[#54321A] text-white rounded-lg lg:text-yellow-950 max-md:px-5">
                 <button className="text-lg font-medium">Read Blog</button>
                 <ArrowRight className="w-5 h-5" />
               </div>
@@ -74,7 +74,7 @@ function Blog() {
               className="absolute inset-0 w-full h-full object-cover rounded-2xl"
               />
 
-              <div className="relative flex flex-col w-full p-6 text-white">
+              <div className="relative flex flex-col w-full lg:p-6 text-white">
                   <div>
                     <div className="text-xl">Blog | 22 January</div>
                     <h2 className="text-4xl font-[Playfair_Display]">
@@ -98,7 +98,7 @@ function Blog() {
               className="absolute inset-0 w-full h-full object-cover rounded-2xl"
               />
 
-                <div className="relative flex flex-col w-full p-6 text-white">
+                <div className="relative flex flex-col w-full lg:p-6 text-white">
                   <div>
                     <div className="text-xl">Blog | 22 January</div>
                     <h2 className="text-4xl font-[Playfair_Display]">
@@ -122,7 +122,7 @@ function Blog() {
               className="absolute inset-0 w-full h-full object-cover rounded-2xl"
               />
 
-                <div className="relative flex flex-col w-full p-6 text-white">
+                <div className="relative flex flex-col w-full lg:p-6 text-white">
                   <div>
                     <div className="text-xl">Blog | 22 January</div>
                     <h2 className="text-4xl font-[Playfair_Display]">

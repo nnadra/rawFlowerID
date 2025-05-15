@@ -8,7 +8,7 @@ const Footer = () => {
     <footer className="bg-[#FFF5E3] mt-10 py-16 px-8">
     {/* Heading */}
     <div className="flex justify-center mb-12">
-      <h1 className="text-7xl text-center font-[Playfair_Display] text-[#4E2A1E]">
+      <h1 className="lg:text-7xl text-3xl text-center font-[Playfair_Display] text-[#4E2A1E]">
         Carry a Bouquet, Carry a Memory
       </h1>
     </div>
@@ -18,7 +18,7 @@ const Footer = () => {
       
       {/* Logo */}
       <div className="flex justify-center md:justify-start">
-        <img src={Logo} alt="Logo" className="w-45 h-auto" />
+        <img src={Logo} alt="Logo" className="lg:w-45 w-30 h-auto" />
       </div>
 
       {/* Navigation Links */}

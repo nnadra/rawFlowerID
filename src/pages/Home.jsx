@@ -47,14 +47,14 @@ function Home() {
         <img
           src={RedFlower}
           alt="Red Flower"
-          className={`w-50 lg:w-120 absolute top-50 left-0 lg:top-20 transition-all duration-700 ease-in-out ${
+          className={`w-30 lg:w-120 absolute top-50 left-0 lg:top-20 transition-all duration-700 ease-in-out ${
             showFlowers ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-10"
           }`}
         />
         <img
           src={WhiteFlower}
           alt="White Flower"
-          className={`w-50 lg:w-120 absolute top-40 right-0 lg:top-10 transition-all duration-700 ease-in-out ${
+          className={`w-30 lg:w-120 absolute top-40 right-0 lg:top-10 transition-all duration-700 ease-in-out ${
             showFlowers ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-10"
           }`}
         />
@@ -78,7 +78,7 @@ function Home() {
         <img
           src={ImageHero}
           alt="Featured banner"
-          className="object-contain mt-7 w-full rounded-2xl aspect-[2.84] max-w-[1300px] mx-auto max-md:max-w-full"
+          className="object-contain mt-7 lg:w-full px-10 lg:px-0 rounded-2xl aspect-[2.84] max-w-[1300px] mx-auto max-md:max-w-full"
         />
 
         {/* Other Sections */}

@@ -18,7 +18,7 @@ const Popular = () => {
   return (
     <div className='p-8 bg-[#FFF5E3] overflow-hidden'>
         <div className='flex justify-between items-center'>
-            <h1 className='font-veryvogue text-6xl text-[#4E2A1E]'>a <span className='italic'>Popular</span> Section</h1>
+            <h1 className='font-veryvogue lg:text-6xl text-2xl text-[#4E2A1E]'>a <span className='italic'>Popular</span> Section</h1>
             <ButtonDark/>
         </div>
 

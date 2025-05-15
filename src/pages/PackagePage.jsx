@@ -7,16 +7,14 @@ import graduation from '../assets/gradu-flower.svg'
 
 const PackagePage = () => {
   return (
-    <div
-  className="relative overflow-hidden p-30 bg-cover bg-center"
-  style={{ backgroundImage: `url(${bgreview})` }}
->
+  <div className="bg-[url('/src/assets/bgreview.png')] w-full h-full">
   <h1 className="text-center text-3xl md:text-5xl font-thin mb-30 text-brown-800 text-[#4E2A1E]">
     <span className="font-veryvogue italic font-semibold text-6xl md:text-5xl text-[#4E2A1E]">Explore</span>{' '}
     Our Package
   </h1>
 
   <div className="flex flex-col md:flex-row justify-center gap-20">
+    
     {/* First Card */}
     <div className="bg-white rounded-md overflow-hidden shadow-md relative">
       <img src={spring1} alt="Spring Flowers" className="w-full h-64 object-cover" />
