@@ -84,7 +84,7 @@ function Home() {
         {/* Other Sections */}
         <section className="pt-20">
           <Hero />
-          <PackagePage />
+          <PackagePage/>
           <Popular />
           <BlogPage />
           <Review />
