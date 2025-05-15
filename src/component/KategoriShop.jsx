@@ -1,11 +1,13 @@
 import { Search } from 'lucide-react'
 import React from 'react'
+import { useNavigate} from 'react-router-dom';
 
 const KategoriShop = () => {
+  const navigate = useNavigate();
   return (
     <div className='lg:flex items-center justify-between mt-10'>
         <div className=''>
-            <button className='px-6 py-3 bg-amber-900 text-lg text-white rounded-lg me-4 mt-4 border-2 border-amber-900 font-bold'>+ Add custom bouquet</button>
+            <button onClick={()=> navigate ("/customBouquet")} className='px-6 py-3 bg-amber-900 text-lg text-white rounded-lg me-4 mt-4 border-2 border-amber-900 font-bold'>+ Add custom bouquet</button>
         </div>
 
         <div className='flex items-center'>

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Menu, User, X } from 'lucide-react';
 import { NavLink, useNavigate, useLocation } from 'react-router-dom';
 import Logo from '../assets/logoo.svg';
 
@@ -16,16 +17,34 @@ const Navbar = () => {
   }, []);
 
   const isLandingPage = location.pathname === '/';
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <div className="relative z-100 px-6 md:px-12 flex items-center justify-between">
-      <div className="flex gap-8 text-[#4E2A1E]">
-        <NavLink to="/" className="hover:font-bold cursor-pointer text-lg">Home</NavLink>
-        <NavLink to="/blogPage" className="hover:font-bold cursor-pointer text-lg">Blog</NavLink>
-        <NavLink to="/shop" className="hover:font-bold cursor-pointer text-lg">Shop</NavLink>
+      {/* Desktop Menu */}
+      <div className="hidden lg:flex gap-8 text-lg">
+        <NavLink to="/" className="hover:font-bold cursor-pointer">Home</NavLink>
+        <NavLink to="/blogPage" className="hover:font-bold cursor-pointer">Blog</NavLink>
+        <NavLink to="/shop" className="hover:font-bold cursor-pointer">Shop</NavLink>
       </div>
 
-      <img src={Logo} alt="logo" className="w-26 h-auto" />
+      {/* Burger Icon (Mobile Only) */}
+      <div className="lg:hidden justify-between items-center">
+        <button onClick={() => setIsOpen(!isOpen)}>
+          {isOpen ? <X size={28} /> : <Menu size={28} />}
+        </button>
+      </div>
+
+      {/* Mobile Menu (Dropdown) */}
+      {isOpen && (
+        <div className="absolute top-full left mt-2 w-40 bg-white shadow-md rounded-lg flex flex-col gap-4 p-4 lg:hidden text-lg z-50">
+          <NavLink to="/" className="hover:font-bold" onClick={() => setIsOpen(false)}>Home</NavLink>
+          <NavLink to="/blogPage" className="hover:font-bold" onClick={() => setIsOpen(false)}>Blog</NavLink>
+          <NavLink to="/shop" className="hover:font-bold" onClick={() => setIsOpen(false)}>Shop</NavLink>
+        </div>
+      )}
+
+      <img src={Logo} alt="logo" className="lg:w-26 w-16 h-auto" />
 
       <div className="flex gap-4 items-center">
         {!userName && isLandingPage ? (
@@ -36,6 +55,9 @@ const Navbar = () => {
             <button onClick={() => navigate('/signup')} className="hidden md:block text-[#4E2A1E] font-medium text-lg">
               Sign Up
             </button>
+            <div className='lg:hidden md:hidden text-[#4E2A1E]' onClick={() => navigate('/signin')}>
+              <User/>
+            </div>
           </>
         ) : userName ? (
           <div className="relative">

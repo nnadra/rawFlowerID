@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { X, Plus, Minus } from "lucide-react";
 
-import ImgCartProduct from '../assets/cart-img1.svg'
-import ImgCartProduct2 from '../assets/cart-img2.svg'
+import ImgCartProduct from "../assets/cart-img1.svg";
+import ImgCartProduct2 from "../assets/cart-img2.svg";
 
 const Cart = () => {
   const [isCartOpen, setIsCartOpen] = useState(true);
@@ -41,9 +41,7 @@ const Cart = () => {
     setCartItems((prev) =>
       prev
         .map((item) =>
-          item.id === id
-            ? { ...item, quantity: item.quantity - 1 }
-            : item
+          item.id === id ? { ...item, quantity: item.quantity - 1 } : item
         )
         .filter((item) => item.quantity > 0)
     );
@@ -68,7 +66,7 @@ const Cart = () => {
         </button>
       </div>
 
-      {/* Items */}
+      {/* Cart Items */}
       <div className="flex-1 overflow-y-auto px-8">
         {cartItems.map((item) => (
           <div
@@ -78,10 +76,10 @@ const Cart = () => {
             <img
               src={item.image}
               alt={item.title}
-              className="w-[90px] h-[80px] rounded-sm object-cover font-veryvogue"
+              className="w-[90px] h-[80px] rounded-sm object-cover"
             />
             <div className="flex-1">
-              <h3 className="text-[22px] font-medium text-[#3e1f1f] leading-none font-veryvogue">
+              <h3 className="text-[22px] font-medium text-[#3e1f1f] leading-none">
                 {item.title}
               </h3>
               <p className="text-sm font-light text-[#3e1f1f] mb-2">{item.description}</p>
@@ -109,7 +107,7 @@ const Cart = () => {
         ))}
       </div>
 
-      {/* Bottom */}
+      {/* Footer */}
       <div className="px-8 pt-4 pb-6 border-t border-[#3e1f1f] bg-[#f9f0e6] mt-auto">
         <div className="flex justify-between mb-4 text-[#3e1f1f]">
           <span className="text-base">Total</span>
@@ -125,7 +123,7 @@ const Cart = () => {
             Continue Shopping
           </button>
           <button className="flex-1 bg-[#3e1f1f] text-white py-2 rounded text-base">
-            Continue Shopping
+            Checkout
           </button>
         </div>
       </div>

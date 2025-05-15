@@ -5,6 +5,8 @@ import CartItem from "./CartItem";
 
 const Cart = ({ setIsCartOpen, isCartOpen }) => {
   // State buat buka/tutup cart popup
+  // const [isCartOpen, setIsCartOpen] = useState(true);
+
   // State buat list item di dalam cart
   const [cartItems] = useCart(); // Ambil data cart dari context (hasil fetch dari backend)
 

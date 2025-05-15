@@ -47,22 +47,22 @@ function Home() {
         <img
           src={RedFlower}
           alt="Red Flower"
-          className={`w-50 lg:w-120 absolute top-50 left-0 lg:top-20 transition-all duration-700 ease-in-out ${
+          className={`w-30 lg:w-120 absolute top-25 left-0 lg:top-20 transition-all duration-700 ease-in-out ${
             showFlowers ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-10"
           }`}
         />
         <img
           src={WhiteFlower}
           alt="White Flower"
-          className={`w-50 lg:w-120 absolute top-40 right-0 lg:top-10 transition-all duration-700 ease-in-out ${
+          className={`w-30 lg:w-120 absolute top-90 right-0 lg:top-10 transition-all duration-700 ease-in-out ${
             showFlowers ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-10"
           }`}
         />
       </div>
 
-      <div className="pb-24">
+      <div className="">
         {/* Hero Section */}
-        <section ref={heroRef} id="hero-section" className="pt-28 max-w-[1300px] mx-auto">
+        <section ref={heroRef} id="hero-section" className="lg:pt-28 pt-10 max-w-[1300px] mx-auto">
           <div className="flex flex-col items-center text-yellow-950">
             <h1 className="text-7xl font-[274] text-center max-md:text-4xl">
               A <span className="font-bold text-[#4e2a1e]">bloom</span> for
@@ -78,13 +78,13 @@ function Home() {
         <img
           src={ImageHero}
           alt="Featured banner"
-          className="object-contain mt-7 w-full rounded-2xl aspect-[2.84] max-w-[1300px] mx-auto max-md:max-w-full"
+          className="object-contain mt-7 lg:w-full px-10 lg:px-0 rounded-2xl aspect-[2.84] max-w-[1300px] mx-auto max-md:max-w-full"
         />
 
         {/* Other Sections */}
         <section className="pt-20">
           <Hero />
-          <PackagePage />
+          <PackagePage/>
           <Popular />
           <BlogPage />
           <Review />
