@@ -4,7 +4,11 @@ import { X, Plus, Minus } from "lucide-react"; // Import icon dari lucide-react 
 import ImgCartProduct from '../assets/cart-img1.svg' // Gambar produk pertama
 import ImgCartProduct2 from '../assets/cart-img2.svg' // Gambar produk kedua
 
-const Cart = ({ isCartOpen, setIsCartOpen }) => {
+const Cart = ({ setIsCartOpen }) => {
+  // State buat buka/tutup cart popup
+  // const [isCartOpen, setIsCartOpen] = useState(true);
+
+  // State buat list item di dalam cart
   const [cartItems, setCartItems] = useState([
     {
       id: 1,
