@@ -6,7 +6,7 @@ const menuItems = ["Mini", "Regular"];
 const CardShop = ({ product }) => {
     const navigate = useNavigate();
   return (
-    <div className='w-80 m-5'>
+    <div className='w-80 m-5 '>
         {/* ini image */}
       <div className='w-80 h-80 bg-gray-200  overflow-hidden' onClick={()=> navigate (`/detailproduk/${product.id}`)} >
         <img src={product.images[0]} className='w-full h-full object-cover hover:transition-transform hover:scale-130 ease-in-out duration-700'/>

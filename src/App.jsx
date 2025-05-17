@@ -37,7 +37,7 @@ const AppContent = () => {
   const canShowCartPopup = location.pathname === '/shop' || location.pathname.includes('/detailproduk')
 
   return (
-    <div className="bg-[#FFF5E3] min-h-screen">
+    <div className="bg-[#FFF5E3] min-h-screen overflow-hidden">
       <Banner />
 
       {/* Navbar logic */}

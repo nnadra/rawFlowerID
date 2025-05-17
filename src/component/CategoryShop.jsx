@@ -22,8 +22,8 @@ const CategoryShop = () => {
   return (
     <div className='mt-10'>
       <h1 className='text-5xl font-veryvogue italic text-[#4E2A1E]'>Our Collection</h1>
-      <div className='flex justify-end items-center gap-2 text-lg'>Short by : <DropDownShop/></div>
-      <div className='mt-10 lg:flex lg:justify-between justify-center'>
+      <div className='flex lg:justify-end mt-5 lg:mt-0 items-center gap-2 text-lg'>Short by : <DropDownShop/></div>
+      <div className='mt-10 w-100 lg:w-full overflow-x-auto flex lg:'>
         {products.map((product) => (
           <CardShop key={product.id} product={product} />
         ))}

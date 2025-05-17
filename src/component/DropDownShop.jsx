@@ -7,7 +7,7 @@ export default function DropDownShop() {
   const options = ["Popular", "Fresh Flower", "Dummy Flower", "Snack Bouquet"];
 
   return (
-    <div className="relative inline-block w-64">
+    <div className="relative w-64">
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="w-full bg-white border border-gray-300 rounded-md shadow-sm px-4 py-2 text-left text-gray-700 hover:bg-gray-50"
