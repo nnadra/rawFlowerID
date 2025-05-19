@@ -1,8 +1,18 @@
 import { useState } from 'react';
 import Images from '../assets/FlowerBg.png';
-import useImageCustom from '../data/ImageCustom';
+import useImageCustom from '../data/ImageCustom'; // custom hook dari zustand atau lainnya
 
-// Data untuk tab menu
+// Data produk bunga
+const flowerData = [
+  { src: Images, name: 'Red Rose', price: 2000 },
+  { src: Images, name: 'White Rose', price: 2500 },
+  { src: Images, name: 'Tulip', price: 3000 },
+  { src: Images, name: 'Lily', price: 2800 },
+  { src: Images, name: 'Sunflower', price: 3500 },
+  { src: Images, name: 'Daisy', price: 2200 },
+];
+
+// Data tab navigasi
 const tabs = [
   { id: 'tab1', label: 'Style' },
   { id: 'tab2', label: 'Paper' },
@@ -11,40 +21,47 @@ const tabs = [
   { id: 'tab5', label: 'Additional' },
 ];
 
-// Komponen kartu item (bisa dipakai berulang)
-const CardItem = () => (
-  <div className=" py-8 px-8 bg-white rounded-2xl shadow-lg flex flex-col items-center">
+// Komponen kartu produk
+const CardItem = ({ item }) => (
+  <div className="py-8 px-8 bg-white rounded-2xl shadow-lg flex flex-col items-center">
     {/* Gambar yang bisa di-drag */}
     <img
-      src={Images}
-      alt="Flower"
+      src={item.src}
+      alt={item.name}
       draggable
-      onDragStart={(e) => e.dataTransfer.setData('src', Images)}
+      onDragStart={(e) => {
+        // Saat di-drag, set data image dan harga
+        e.dataTransfer.setData('src', item.src);
+        e.dataTransfer.setData('price', item.price);
+      }}
       className="w-18 mb-4"
     />
-    {/* Item ini kalau di drag abis itu di drop ke stage dia bakal ke counting sesuai harga */}
+    {/* Nama dan harga bunga */}
     <div className="text-center">
-      <h3 className="customproduct text-lg font-bold">Red Rose</h3>
-      <p className="price text-lg">Rp. 2.000,00</p>
+      <h3 className="customproduct text-lg font-bold">{item.name}</h3>
+      <p className="price text-lg">Rp. {item.price.toLocaleString('id-ID')}</p>
     </div>
   </div>
 );
 
-// Komponen isi tab (menggunakan grid untuk tata letak)
+// Komponen konten tab (menampilkan semua bunga)
 const TabContent = () => (
   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-    {/* Render 6 kartu */}
-    {[...Array(6)].map((_, idx) => (
-      <CardItem key={idx} />
+    {flowerData.map((item, idx) => (
+      <CardItem key={idx} item={item} />
     ))}
   </div>
 );
 
 // Komponen utama
 const ComponentCustom = () => {
-  const [activeTab, setActiveTab] = useState('tab1'); // Tab aktif saat ini
+  const [activeTab, setActiveTab] = useState('tab1'); // state tab aktif
+  const images = useImageCustom((state) => state.images); // ambil data gambar yang ditambahkan ke stage
 
-  // Isi konten tiap tab
+  // Hitung total harga dari gambar yang sudah ditambahkan
+  const totalPrice = images.reduce((acc, item) => acc + (item.price || 0), 0);
+
+  // Konten sesuai tab
   const tabContent = {
     tab1: <TabContent />,
     tab2: <div>Tes 2</div>,
@@ -55,10 +72,9 @@ const ComponentCustom = () => {
 
   return (
     <div className="bg-[#E5D5B7] h-screen flex flex-col">
-      {/* Header dan tab menu */}
+      {/* Header dan navigasi tab */}
       <div className="p-4">
         <h1 className="text-2xl font-bold text-amber-950 text-center">Custom Bouquet</h1>
-        {/* Tab navigasi */}
         <div className="flex justify-center mt-5 flex-wrap gap-3">
           {tabs.map((tab) => (
             <button
@@ -68,7 +84,7 @@ const ComponentCustom = () => {
                   ? 'bg-amber-950 text-white'
                   : 'text-amber-950/64 hover:text-amber-900'
               }`}
-              onClick={() => setActiveTab(tab.id)} // Ganti tab saat diklik
+              onClick={() => setActiveTab(tab.id)}
             >
               {tab.label}
             </button>
@@ -76,16 +92,14 @@ const ComponentCustom = () => {
         </div>
       </div>
 
-      {/* Konten scrollable */}
-      <div className="flex-1 overflow-y-auto px-4">
-        {tabContent[activeTab]}
-      </div>
+      {/* Konten bunga sesuai tab */}
+      <div className="flex-1 overflow-y-auto px-4">{tabContent[activeTab]}</div>
 
-      {/* dibagian sini, bakal totalin, jadi bukan 300 tapi sesuai harga product mana yang di tarik dari kotak mana dan sesuai harga  */}
+      {/* Total harga dinamis */}
       <div className="p-4">
         <div className="flex justify-between text-2xl">
           <p>Total:</p>
-          <p className="font-bold">Rp 300.000</p>
+          <p className="font-bold">Rp {totalPrice.toLocaleString('id-ID')}</p>
         </div>
         <button className="w-full mt-3 p-5 rounded-xl bg-amber-950 text-white text-2xl">
           Add to cart

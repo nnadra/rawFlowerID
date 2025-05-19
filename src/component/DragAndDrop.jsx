@@ -59,9 +59,10 @@ const DragAndDrop = () => {
           stageRef.current.setPointersPositions(e);
           const pos = stageRef.current.getPointerPosition();
           const src = e.dataTransfer.getData("src");
+          const price = parseInt(e.dataTransfer.getData("price")) || 0; //ambil harga
 
           if (src) {
-            addImage({ ...pos, src });
+            addImage({ ...pos, src, price }); //kirim ke Zustand
           }
         }}
         onDragOver={(e) => e.preventDefault()}
