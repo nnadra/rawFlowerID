@@ -5,11 +5,11 @@ import DragAndDrop from '../component/DragAndDrop.jsx'
 
 const Custom = () => {
   return (
-    <div className='lg:flex justify-between overflow-hidden'>
-      <div className=' flex-1 bg-white'>
+    <div className='flex flex-col lg:flex-row h-screen overflow-hidden'>
+      <div className='w-full lg:w-[65%] h-[60vh] lg:h-full overflow-hidden'>
         <DragAndDrop/>
       </div>
-      <div className=''>
+      <div className='w-full lg:w-[35%] h-[40vh] lg:h-full overflow-hidden'>
         <ComponentCustom/>
       </div>
     </div>

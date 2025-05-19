@@ -22,17 +22,17 @@ const CardItem = () => (
       onDragStart={(e) => e.dataTransfer.setData('src', Images)}
       className="w-18 mb-4"
     />
-    {/* Informasi item */}
+    {/* Item ini kalau di drag abis itu di drop ke stage dia bakal ke counting sesuai harga */}
     <div className="text-center">
-      <h3 className="text-lg font-bold">Red Rose</h3>
-      <p className="text-lg">Rp. 2.000,00</p>
+      <h3 className="customproduct text-lg font-bold">Red Rose</h3>
+      <p className="price text-lg">Rp. 2.000,00</p>
     </div>
   </div>
 );
 
 // Komponen isi tab (menggunakan grid untuk tata letak)
 const TabContent = () => (
-  <div className="grid grid-cols-2 gap-4">
+  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
     {/* Render 6 kartu */}
     {[...Array(6)].map((_, idx) => (
       <CardItem key={idx} />
@@ -81,10 +81,10 @@ const ComponentCustom = () => {
         {tabContent[activeTab]}
       </div>
 
-      {/* Bagian bawah: harga dan tombol */}
+      {/* dibagian sini, bakal totalin, jadi bukan 300 tapi sesuai harga product mana yang di tarik dari kotak mana dan sesuai harga  */}
       <div className="p-4">
         <div className="flex justify-between text-2xl">
-          <p>Price:</p>
+          <p>Total:</p>
           <p className="font-bold">Rp 300.000</p>
         </div>
         <button className="w-full mt-3 p-5 rounded-xl bg-amber-950 text-white text-2xl">

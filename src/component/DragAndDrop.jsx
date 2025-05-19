@@ -1,7 +1,7 @@
 import React from 'react';
 import { Trash } from 'lucide-react';
-import { Stage, Layer, Image as KonvaImage } from "react-konva";
-import useImage from "use-image";
+import { Stage, Layer, Image as KonvaImage } from 'react-konva';
+import useImage from 'use-image';
 import useImageCustom from '../data/ImageCustom';
 
 const URLImage = ({ image }) => {
@@ -46,8 +46,9 @@ const DragAndDrop = () => {
 
   const [selectedIndex, setSelectedIndex] = React.useState(null);
 
-  const stageWidth = window.innerWidth / 1.8;
-  const stageHeight = window.innerHeight / 1.8;
+  const stageWidth = window.innerWidth * 0.8; // 50% layar, biar pas sebelahan
+  const stageHeight = window.innerHeight - 150; // supaya muat, minus footer height
+
 
   return (
     <div className="h-screen flex flex-col bg-white">
