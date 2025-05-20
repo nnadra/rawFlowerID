@@ -15,5 +15,5 @@ const Custom = () => {
     </div>
   )
 }
-
+console.log('Rendering Custom component');
 export default Custom

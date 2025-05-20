@@ -26,13 +26,14 @@ const NavbarLogin = () => {
       <img src={Logo} alt="logo" className="w-26 h-auto" />
 
       <div className="flex text-[#4E2A1E] items-center gap-4">
-        <button><Heart size={30}/></button>
+        <button><Heart size={30} /></button>
         <button onClick={() => setIsCartOpen(true)}>
-        <ShoppingCart size={30} />
-      </button>
-
-      {isCartOpen && <Cart setIsCartOpen={setIsCartOpen} />}
+          <ShoppingCart size={30} />
+        </button>
       </div>
+
+      {/* Cart Panel */}
+      <Cart isCartOpen={isCartOpen} setIsCartOpen={setIsCartOpen} />
     </div>
   );
 };
