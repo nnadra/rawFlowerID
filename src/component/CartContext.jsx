@@ -1,77 +1,47 @@
-import { createContext, useContext, useState, useEffect } from "react";
-import axios from "axios";
-import { getAuthHeaders } from "../utils/helper";
+import React, { createContext, useContext, useState, useEffect } from 'react';
+import axios from 'axios';
+import axiosClient, { getAuthHeaders } from '../utils/helper';
 
 const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [isCartOpen, setIsCartOpen] = useState(false);
 
   const fetchCart = async () => {
     setIsLoading(true);
     try {
-      const res = await axios.get("http://localhost:8000/api/cart", {
-        headers: getAuthHeaders(),
-      });
-      setCartItems(res.data.items || []);
-    } catch (error) {
-      console.error("Failed to fetch cart", error);
+      const { data } = await axiosClient.get('/api/cart', { headers: getAuthHeaders() });
+      setCartItems(data.items || []);
+    } catch (err) {
+      console.error(err);
     } finally {
       setIsLoading(false);
     }
   };
 
   const addToCart = async ({ product_id, quantity = 1 }) => {
-    try {
-      await axios.post(
-        "http://localhost:8000/api/cart/add",
-        { product_id, quantity },
-        { headers: getAuthHeaders() }
-      );
-      // refresh cart data setelah add
-      await fetchCart();
-    } catch (error) {
-      console.error("Failed to add to cart", error);
-    }
+    await axiosClient.post(
+      '/api/cart/add',
+      { product_id, quantity },
+      { headers: getAuthHeaders() }
+    );
+    await fetchCart();
   };
 
-  const increaseQty = async (item) => {
-    try {
-      await axios.patch(
-        `http://localhost:8000/api/cart/update/${item.id}`,
-        { quantity: item.quantity + 1 },
-        { headers: getAuthHeaders() }
-      );
-      await fetchCart();
-    } catch (error) {
-      console.error("Failed to increase quantity", error);
-    }
+  const updateQty = async (itemId, quantity) => {
+    await axiosClient.patch(
+      `/api/cart/update/${itemId}`,
+      { quantity },
+      { headers: getAuthHeaders() }
+    );
+    await fetchCart();
   };
 
-  const decreaseQty = async (item) => {
-    if (item.quantity <= 1) return; // atau lo bisa auto remove juga
-    try {
-      await axios.patch(
-        `http://localhost:8000/api/cart/update/${item.id}`,
-        { quantity: item.quantity - 1 },
-        { headers: getAuthHeaders() }
-      );
-      await fetchCart();
-    } catch (error) {
-      console.error("Failed to decrease quantity", error);
-    }
-  };
-
-  const removeItem = async (id) => {
-    try {
-      await axios.delete(`http://localhost:8000/api/cart/remove/${id}`, {
-        headers: getAuthHeaders(),
-      });
-      await fetchCart(); // refresh data cart dari server
-    } catch (error) {
-      console.error("Gagal hapus item dari cart", error);
-    }
+  const removeItem = async (itemId) => {
+    await axiosClient.delete(`/api/cart/remove/${itemId}`, { headers: getAuthHeaders() });
+    await fetchCart();
   };
 
   useEffect(() => {
@@ -79,7 +49,15 @@ export const CartProvider = ({ children }) => {
   }, []);
 
   return (
-    <CartContext.Provider value={{ cartItems, isLoading, addToCart, fetchCart }}>
+    <CartContext.Provider value={{
+      cartItems,
+      isLoading,
+      isCartOpen,
+      setIsCartOpen,
+      addToCart,
+      updateQty,
+      removeItem
+    }}>
       {children}
     </CartContext.Provider>
   );

@@ -1,48 +1,36 @@
-import React from 'react'
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom'
-import Navbar from './component/Navbar'
-import NavbarLogin from './component/NavbarLogin'
-import Banner from './component/Banner'
-import SignIn from './pages/SignIn'
-import SignUp from './pages/SignUp'
-import Home from './pages/Home'
-import Blog from './pages/Blog'
-import ShopPage from './pages/ShopPage'
-import DetailProduct from './pages/DetailProduct'
-import BlogPage from './pages/BlogPage'
-import DetailBlog from './pages/DetailBlog'
-import Cart from './component/Cart'
-import { useCart } from './component/CartContext'
-import Custom from './pages/Custom'
-
-// fetch('http://127.0.0.1:8000/', {
-//   method: 'GET',
-//   headers: {
-//     Accept: 'application/json',
-//     'Content-Type': 'application/json',
-//   },
-//   body: JSON.stringify({
-//     firstParam: 'yourValue',
-//     secondParam: 'yourOtherValue',
-//   }),
-// });
-
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import Navbar from './component/Navbar';
+import NavbarLogin from './component/NavbarLogin';
+import Banner from './component/Banner';
+import SignIn from './pages/SignIn';
+import SignUp from './pages/SignUp';
+import Home from './pages/Home';
+import Blog from './pages/Blog';
+import ShopPage from './pages/ShopPage';
+import DetailProduct from './pages/DetailProduct';
+import BlogPage from './pages/BlogPage';
+import DetailBlog from './pages/DetailBlog';
+import Custom from './pages/Custom';
+import { useCart } from './component/CartContext';
 
 const AppContent = () => {
-  const location = useLocation()
-  const hideNavbarRoutes = ['/signin', '/signup']
-  const user = JSON.parse(localStorage.getItem("user") || "null")
-  const { isCartOpen, setIsCartOpen } = useCart(); // ini dia
-   // Path yang boleh munculin popup cart
-  const canShowCartPopup = location.pathname === '/shop' || location.pathname.includes('/detailproduk')
+  const location = useLocation();
+  const hideNavbar = ['/signin', '/signup'];
+  const user = JSON.parse(localStorage.getItem('user') || 'null');
+  const { isCartOpen } = useCart();
+
+  const showCartOn = ['/shop', '/detailproduk/:id'];
+  const canShowCart = showCartOn.some(p => location.pathname.startsWith(p.split('/:')[0]));
 
   return (
     <div className="bg-[#FFF5E3] min-h-screen">
       <Banner />
 
-      {/* Navbar logic */}
-      {!hideNavbarRoutes.includes(location.pathname) && (
-        location.pathname === '/' ? <Navbar /> : (user ? <NavbarLogin /> : <Navbar />)
+      {!hideNavbar.includes(location.pathname) && (
+        location.pathname === '/'
+          ? <Navbar />
+          : (user ? <NavbarLogin /> : <Navbar />)
       )}
 
       <Routes>
@@ -53,24 +41,17 @@ const AppContent = () => {
         <Route path="/blogPage" element={<BlogPage />} />
         <Route path="/shop" element={<ShopPage />} />
         <Route path="/detailBlog" element={<DetailBlog />} />
-        <Route path="/cart" element={<Cart />} />
         <Route path="/detailproduk/:id" element={<DetailProduct />} />
-        <Route path="/customBouquet" element={<Custom/>} />
-        <Route path="/" element={<Home />} />
+        <Route path="/customBouquet" element={<Custom />} />
       </Routes>
-
-      {/* Tampilkan popup Cart HANYA di /shop & /detailproduk/:id */}
-      {canShowCartPopup && isCartOpen && <Cart onClose={() => setIsCartOpen(false)} />}
     </div>
-  )
-}
+  );
+};
 
-const App = () => {
+export default function App() {
   return (
     <Router>
       <AppContent />
     </Router>
-  )
+  );
 }
-
-export default App

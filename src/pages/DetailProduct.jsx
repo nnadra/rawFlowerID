@@ -8,6 +8,7 @@ import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import { useCart } from '../component/CartContext';
 import toast from 'react-hot-toast';
+import axiosClient from '../utils/helper';
 
 
 export default function DetailProduct() {
@@ -19,7 +20,7 @@ export default function DetailProduct() {
   const { addToCart } = useCart();
 
   useEffect(() => {
-    axios.get(`http://localhost:8000/api/products/${id}/detail`)
+    axiosClient.get(`/api/products/${id}/detail`)
       .then((res) => {
         setDetailProduct(res.data.data); // tergantung format respons API kamu
       })

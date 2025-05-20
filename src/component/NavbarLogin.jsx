@@ -3,17 +3,16 @@ import { useNavigate } from 'react-router-dom';
 import Logo from '../assets/logoo.svg';
 import { Heart, ShoppingCart } from 'lucide-react';
 import Cart from './Cart';
+import { useCart } from './CartContext';
 
-const NavbarLogin = () => {
+export default function NavbarLogin() {
   const navigate = useNavigate();
   const [userName, setUserName] = useState('');
-  const [isCartOpen, setIsCartOpen] = useState(false);
+  const { isCartOpen, setIsCartOpen } = useCart();
 
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem('user'));
-    if (user && user.name) {
-      setUserName(user.name);
-    }
+    if (user?.name) setUserName(user.name);
   }, []);
 
   return (
@@ -26,15 +25,12 @@ const NavbarLogin = () => {
       <img src={Logo} alt="logo" className="w-26 h-auto" />
 
       <div className="flex text-[#4E2A1E] items-center gap-4">
-        <button><Heart size={30}/></button>
+        <button><Heart size={30} /></button>
         <button onClick={() => setIsCartOpen(true)}>
-        <ShoppingCart size={30} />
-      </button>
-
-      {isCartOpen && <Cart setIsCartOpen={setIsCartOpen} />}
+          <ShoppingCart size={30} />
+        </button>
+        {isCartOpen && <Cart />}
       </div>
     </div>
   );
-};
-
-export default NavbarLogin;
+}
