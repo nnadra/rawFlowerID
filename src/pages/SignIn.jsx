@@ -44,7 +44,9 @@ export default function SignIn() {
             required
             value={email}
             onChange={e => setEmail(e.target.value)}
-            className="w-full px-5 py-4 rounded-2xl bg-white border border-[#4E2A1E]"
+            className={`px-5 py-4 w-full rounded-2xl transition-colors duration-200 ${
+                email ? 'bg-white text-black border border-[#4E2A1E]' : 'bg-[#E5D5B7] text-[#AE968E]'
+              }`}
           />
 
           <input
@@ -53,7 +55,9 @@ export default function SignIn() {
             required
             value={password}
             onChange={e => setPassword(e.target.value)}
-            className="w-full px-5 py-4 rounded-2xl bg-white border border-[#4E2A1E]"
+            className={`px-5 py-4 w-full rounded-2xl transition-colors duration-200 ${
+                password ? 'bg-white text-black border border-[#4E2A1E]' : 'bg-[#E5D5B7] text-[#AE968E]'
+              }`}
           />
 
           <button

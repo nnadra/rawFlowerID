@@ -51,7 +51,9 @@ const SignUp = () => {
             <input 
               type="text" 
               placeholder="Your Name" 
-              className="px-5 py-4 border border-[#4E2A1E] rounded-2xl"
+              className={`px-5 py-4 w-full rounded-2xl transition-colors duration-200 ${
+                nama ? 'bg-white text-black border border-[#4E2A1E]' : 'bg-[#E5D5B7] text-[#AE968E]'
+              }`}
               value={nama}
               onChange={(e) => setNama(e.target.value)}
             />
@@ -59,7 +61,9 @@ const SignUp = () => {
             <input 
               type="text" 
               placeholder="Email" 
-              className="px-5 py-4 bg-[#E5D5B7] text-[#AE968E] rounded-2xl"
+              className={`px-5 py-4 w-full rounded-2xl transition-colors duration-200 ${
+                email ? 'bg-white text-black border border-[#4E2A1E]' : 'bg-[#E5D5B7] text-[#AE968E]'
+              }`}
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
@@ -67,7 +71,9 @@ const SignUp = () => {
             <input 
               type="password" 
               placeholder="Password" 
-              className="px-4 py-4 bg-[#E5D5B7] text-[#AE968E] rounded-2xl"
+              className={`px-5 py-4 w-full rounded-2xl transition-colors duration-200 ${
+                password ? 'bg-white text-black border border-[#4E2A1E]' : 'bg-[#E5D5B7] text-[#AE968E]'
+              }`}
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
@@ -75,7 +81,9 @@ const SignUp = () => {
             <input 
               type="number" 
               placeholder="Phone number" 
-              className="px-4 py-4 bg-[#E5D5B7] text-[#AE968E] rounded-2xl"
+              className={`px-5 py-4 w-full rounded-2xl transition-colors duration-200 ${
+                phone ? 'bg-white text-black border border-[#4E2A1E]' : 'bg-[#E5D5B7] text-[#AE968E]'
+              }`}
               value={phone}
               onChange={(e) => setPhone(e.target.value)}
             />
