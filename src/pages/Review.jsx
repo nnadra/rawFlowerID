@@ -2,7 +2,7 @@ import React from 'react'
 
 const Review = () => {
   return (
-    <div className="relative overflow-hidden p-8 bg-[url(src/assets/bgreview.png)]">
+    <div className="relative overflow-hidden p-20 bg-[url(src/assets/bgreview.png)] ">
        <img src="src/assets/kiribunga.png" alt="Bunga Kiri" className="absolute top-0 left-0 w-72 h-auto hidden lg:block" />
         <img src="src/assets/kananbunga.png" alt="Bunga Kanan" className="absolute bottom-0 right-0 w-72 h-auto" />
 

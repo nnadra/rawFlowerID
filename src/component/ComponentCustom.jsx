@@ -1,12 +1,14 @@
 import { useState } from 'react';
 import Images from '../assets/FlowerBg.png';
+import Images2 from '../assets/bungaPink.png';
+import Images3 from '../assets/bungamatahari.png';
 import useImageCustom from '../data/ImageCustom'; // custom hook dari zustand atau lainnya
 
 // Data produk bunga untuk tiap kategori/tab
 const flowerData = [
   { src: Images, name: 'Red Rose', price: 2000 },
-  { src: Images, name: 'White Rose', price: 2500 },
-  { src: Images, name: 'Tulip', price: 3000 },
+  { src: Images2, name: 'White Rose', price: 2500 },
+  { src: Images3, name: 'Tulip', price: 3000 },
   { src: Images, name: 'Lily', price: 2800 },
   { src: Images, name: 'Sunflower', price: 3500 },
   { src: Images, name: 'Daisy', price: 2200 },
