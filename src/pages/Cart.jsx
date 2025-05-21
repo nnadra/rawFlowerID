@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { X, Plus, Minus } from "lucide-react";
 
+
 import ImgCartProduct from "../assets/cart-img1.svg";
 import ImgCartProduct2 from "../assets/cart-img2.svg";
 
