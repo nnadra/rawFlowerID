@@ -22,7 +22,7 @@ const Popular = () => {
             <ButtonDark/>
         </div>
 
-        <div className='flex justify-between pt-10 max-md:flex-col max-md:items-center'>
+        <div className='flex justify-between pt-10 lg:w-fit w-90 overflow-x-auto max-md:items-center'>
         {popularProducts.slice(0,4).map((product) => (
           <CardPopular key={product.id} product = {product} />
         ))}

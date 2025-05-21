@@ -29,8 +29,10 @@ export default function NavbarLogin() {
         <button onClick={() => setIsCartOpen(true)}>
           <ShoppingCart size={30} />
         </button>
-        {isCartOpen && <Cart />}
       </div>
+
+      {/* Cart Panel */}
+      <Cart isCartOpen={isCartOpen} setIsCartOpen={setIsCartOpen} />
     </div>
   );
 }

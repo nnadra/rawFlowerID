@@ -24,7 +24,7 @@ const AppContent = () => {
   const canShowCart = showCartOn.some(p => location.pathname.startsWith(p.split('/:')[0]));
 
   return (
-    <div className="bg-[#FFF5E3] min-h-screen">
+    <div className="bg-[#FFF5E3] min-h-screen overflow-hidden">
       <Banner />
 
       {!hideNavbar.includes(location.pathname) && (

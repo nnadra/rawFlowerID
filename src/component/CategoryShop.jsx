@@ -22,8 +22,9 @@ const CategoryShop = () => {
   return (
     <div className='mt-10'>
       <h1 className='text-5xl font-veryvogue italic text-[#4E2A1E]'>Our Collection</h1>
-      <div className='flex justify-end items-center gap-2 text-lg'>Short by : <DropDownShop/></div>
-      <div className='mt-10 lg:flex lg:justify-between justify-center'>
+      <div className='flex lg:justify-end mt-5 lg:mt-0 items-center gap-2 text-lg'>Short by : <DropDownShop/></div>
+      {/* 1 kolom -> mobile, 2 -> screen kecil n medium, 3 -> large, 4 -> layar besar */}
+      <div className='mt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3'>
         {products.map((product) => (
           <CardShop key={product.id} product={product} />
         ))}

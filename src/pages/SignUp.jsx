@@ -36,7 +36,7 @@ const SignUp = () => {
       // pindah ke halaman Shop
       navigate("/shop");
     } catch (err) {
-      console.error("Failed to sign up:", err);
+      console.error("Failed to sign up:", err.response?.data || err.message);
       alert("Registration failed, check your data again.");
     }
   };
