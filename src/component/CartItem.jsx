@@ -27,7 +27,7 @@ const CartItem = ({ item, onRemove, onIncrease, onDecrease }) => {
       </div>
 
       <div className="flex flex-col items-end justify-between h-full">
-        <button onClick={onRemove}>
+        <button onClick={() => onRemove(item.id)}>
           <X className="w-5 h-5 text-[#3e1f1f]" />
         </button>
         <div className="mt-6 flex items-center gap-3 border px-3 py-[2px] rounded text-[#3e1f1f]">
