@@ -80,7 +80,7 @@ const Cart = () => {
               className="w-[90px] h-[80px] rounded-sm object-cover"
             />
             <div className="flex-1">
-              <h3 className="text-[22px] font-medium text-[#3e1f1f] leading-none">
+              <h3 className="text-[22px] font-medium text-[#3e1f1f] leading-none font-veryvogue ">
                 {item.title}
               </h3>
               <p className="text-sm font-light text-[#3e1f1f] mb-2">{item.description}</p>
