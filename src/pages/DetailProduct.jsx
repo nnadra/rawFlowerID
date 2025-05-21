@@ -181,26 +181,6 @@ export default function DetailProduct() {
 
           {/* KANAN: RATING & PROMO */}
           <div className="w-full md:w-1/2 flex flex-col gap-6">
-            {/* Rating */}
-            <div>
-              <div className="flex items-center gap-2">
-                <div className="flex text-yellow-400 text-xl">★ ★ ★ ★ ☆</div>
-                <span className="text-[#4E2A1E] font-bold text-lg">4.0</span>
-              </div>
-
-              <div className="mt-3 space-y-2 text-sm">
-                {[5, 4, 3, 2, 1].map((star) => (
-                  <div key={star} className="flex items-center gap-2">
-                    <span className="w-4">{star}</span>
-                    <div className="flex-1 bg-gray-200 rounded-full h-2">
-                      <div className="bg-yellow-400 h-2 rounded-full" style={{ width: '70%' }} />
-                    </div>
-                    <span className="w-6 text-right">28</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
             {/* Promo */}
             <div className="bg-[url('src/assets/bgreview.png')] rounded-lg p-5 text-[#4E2A1E]">
               <h3 className="font-bold text-xl leading-snug">

@@ -1,8 +1,10 @@
 import React from 'react'
+import { useNavigate} from 'react-router-dom';
 
 const CardPopular = ({ product }) => {
+  const navigate = useNavigate();
   return (
-    <div className="p-3 mx-3 bg-[url('src/assets/image.png')] border-2 border-[#4E2A1E] rounded-2xl mb-5 flex flex-col justify-between min-h-[460px] w-70">
+    <div onClick={()=> navigate (`/detailproduk/${product.id}`)} className="p-3 cursor-pointer mx-3 bg-[url('src/assets/image.png')]  hover:scale-105 transition-transform  border-2 border-[#4E2A1E] rounded-2xl mb-5 flex flex-col justify-between min-h-[460px] w-70">
       
       {/* Gambar Produk */}
       <div className="w-full h-60 relative overflow-hidden rounded-2xl border-2 border-[#4E2A1E]">
