@@ -4,7 +4,7 @@ import graduation from "../assets/gradu-flower.svg";
 
 const PackagePage = () => {
   return (
-    <div className="bg-[url('/src/assets/bgreview.png')] bg-cover bg-center">
+    <div className="bg-[url('/src/assets/bgreview.png')] bg-cover bg-center p-10">
       <div className="py-10 px-4">
         <h1 className="text-center text-3xl md:text-5xl font-thin text-[#4E2A1E] mb-10">
           <span className="font-veryvogue italic font-semibold text-6xl md:text-5xl text-[#4E2A1E]">
