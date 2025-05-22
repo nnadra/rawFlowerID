@@ -3,7 +3,7 @@ import React from "react";
 const ProgressBar = () => {
   return (
     <div className="">
-      <div className="flex w-full mt-20">
+      <div className="flex w-full lg:mt-20 mt-10">
         {/* Ordered */}
         <div className="w-full">
           <div className="flex items-center">

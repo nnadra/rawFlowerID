@@ -9,7 +9,7 @@ import Courier from '../component/Courier'
 
 const CheckoutDetail = () => {
   return (
-    <div className='px-15 py-5 bg-[url("/src/assets/bgreview.png")] overflow-hidden'>
+    <div className='lg:px-15 px-5 py-5 bg-[url("/src/assets/bgreview.png")] overflow-hidden'>
       <PaymentNavbar/>
       <Address/>
 
