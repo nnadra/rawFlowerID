@@ -1,44 +1,46 @@
 import { useState } from 'react';
 import Images from '../assets/FlowerBg.png';
+import Images2 from '../assets/bungaPink.png';
+import Images3 from '../assets/bungamatahari.png';
 import useImageCustom from '../data/ImageCustom'; // custom hook dari zustand atau lainnya
 
 // Data produk bunga untuk tiap kategori/tab
 const flowerData = [
   { src: Images, name: 'Red Rose', price: 2000 },
-  { src: Images, name: 'White Rose', price: 2500 },
-  { src: Images, name: 'Tulip', price: 3000 },
+  { src: Images2, name: 'White Rose', price: 2500 },
+  { src: Images3, name: 'Tulip', price: 3000 },
   { src: Images, name: 'Lily', price: 2800 },
   { src: Images, name: 'Sunflower', price: 3500 },
   { src: Images, name: 'Daisy', price: 2200 },
 ];
 
-// Data produk dried flowers
+// Data produk dried flowers untuk tab2
 const driedFlowersData = [
   { src: Images, name: 'Lavender', price: 1500 },
   { src: Images, name: 'Baby Breath', price: 1200 },
   { src: Images, name: 'Statice', price: 1300 },
 ];
 
-// Artificial flowers
+// Data produk artificial flowers untuk tab3
 const artificialFlowersData = [
   { src: Images, name: 'Silk Rose', price: 1800 },
   { src: Images, name: 'Plastic Tulip', price: 1400 },
   { src: Images, name: 'Fabric Daisy', price: 1600 },
 ];
 
-// Bow
+// Data produk bow untuk tab4
 const bowData = [
   { src: Images, name: 'Red Bow', price: 800 },
   { src: Images, name: 'Gold Bow', price: 1000 },
 ];
 
-// Wrapping
+// Data produk wrapping untuk tab5
 const wrappingData = [
   { src: Images, name: 'Brown Paper', price: 300 },
   { src: Images, name: 'Cellophane', price: 500 },
 ];
 
-// Additional
+// Data produk additional untuk tab7
 const additionalData = [
   { src: Images, name: 'Greeting Card', price: 200 },
   { src: Images, name: 'Ribbon', price: 150 },
@@ -51,7 +53,7 @@ const tabs = [
   { id: 'tab3', label: 'Artificial Flowers' },
   { id: 'tab4', label: 'Bow' },
   { id: 'tab5', label: 'Wrapping' },
-  { id: 'tab6', label: 'Bow' }, // duplikat, boleh dihapus jika tak perlu
+  { id: 'tab6', label: 'Bow' }, // Kamu punya dua tab "Bow" sama, aku biarkan sesuai data kamu
   { id: 'tab7', label: 'Additional' },
 ];
 
@@ -75,7 +77,7 @@ const CardItem = ({ item }) => (
   </div>
 );
 
-// Komponen konten tab
+// Komponen konten tab (grid biasa)
 const TabContent = ({ data }) => (
   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 py-4">
     {data.map((item, idx) => (
@@ -88,8 +90,10 @@ const TabContent = ({ data }) => (
 const ComponentCustom = () => {
   const [activeTab, setActiveTab] = useState('tab1');
   const images = useImageCustom((state) => state.images);
+
   const totalPrice = images.reduce((acc, item) => acc + (item.price || 0), 0);
 
+  // Mapping data sesuai tab
   const tabContent = {
     tab1: <TabContent data={flowerData} />,
     tab2: <TabContent data={driedFlowersData} />,
@@ -106,7 +110,7 @@ const ComponentCustom = () => {
       <div className="p-4">
         <h1 className="text-2xl font-bold text-amber-950 text-center">Custom Bouquet</h1>
 
-        {/* Tabs */}
+        {/* Tabs navigasi dengan scroll horizontal */}
         <div
           className="my-5 flex space-x-3 overflow-x-auto scrollbar-hide px-2"
           style={{ WebkitOverflowScrolling: 'touch' }}
@@ -127,10 +131,10 @@ const ComponentCustom = () => {
         </div>
       </div>
 
-      {/* Konten */}
+      {/* Konten tab */}
       <div className="flex-1 overflow-y-auto px-4">{tabContent[activeTab]}</div>
 
-      {/* Total harga */}
+      {/* Total harga dan tombol */}
       <div className="p-4">
         <div className="flex justify-between text-2xl">
           <p>Total:</p>
