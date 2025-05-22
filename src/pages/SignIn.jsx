@@ -80,13 +80,13 @@ export default function SignIn() {
       </div>
 
       {/* KANAN: Ilustrasi */}
-      <div className="relative sm:block hidden w-full m-5">
-        <img
-          src={PicSignin}
-          alt="Sign In Illustration"
-          className="absolute w-[90%] h-full object-cover rounded-lg"
-        />
-      </div>
+      <div className="relative w-[100%] sm:flex hidden">
+              <img
+                src={PicSignin}
+                alt="Pic SignUp"
+                className="absolute w-[97%] h-[97%] object-cover m-3 rounded-lg"
+              />
+            </div>
     </div>
   );
 }

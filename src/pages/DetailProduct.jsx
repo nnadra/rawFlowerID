@@ -39,7 +39,7 @@ export default function DetailProduct() {
   return (
     <div className='bg-white'>
       {/* SECTION 1: ATAS - FOTO & INFO PRODUK */}
-      <div className="bg-white py-10 px-6 md:px-20 mt-8">
+      <div className="bg-white py-10 px-6 md:px-20">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row gap-10">
           {/* KIRI: GAMBAR PRODUK */}
           <div className="w-full md:w-1/2 flex flex-col gap-6">

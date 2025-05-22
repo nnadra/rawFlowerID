@@ -60,7 +60,7 @@ const SignUp = () => {
       <div className="flex flex-col sm:w-[50%] w-[100%] items-center justify-center px-8">
         <div className="w-full max-w-md flex flex-col items-center px-5">
           <img src={Logo} alt="Logo" className="mb-6" />
-          <h1 className="text-4xl font-semibold mb-4">Create Your Account</h1>
+          <h1 className="text-4xl text-center font-semibold mb-4">Create Your Account</h1>
           <form className="flex flex-col space-y-5 w-full mt-10">
             
             {/* Nama */}
