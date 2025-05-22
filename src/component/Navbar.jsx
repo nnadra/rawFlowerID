@@ -47,7 +47,7 @@ const Navbar = () => {
       <img src={Logo} alt="logo" className="lg:w-26 w-16 h-auto" />
 
       <div className="flex gap-4 items-center">
-        {!userName && isLandingPage ? (
+        {!userName ? (
           <>
             <button onClick={() => navigate('/signin')} className="hidden md:block bg-[#4E2A1E] text-white font-medium text-base py-2 px-5 cursor-pointer">
               Sign In
@@ -59,17 +59,34 @@ const Navbar = () => {
               <User/>
             </div>
           </>
-        ) : userName ? (
+        ) : userName && isLandingPage ? (
           <div className="relative">
             <div className="flex gap-5">
-              <div className="h-10 w-10 rounded-full bg-amber-900" />
+              <div className="hidden lg:flex w-13 h-13 justify-center items-center text-gray-600 rounded-full bg-gray-300">
+                        <User className='hidden lg:block' size={30}/>
+              </div>
+              {/* Desktop */}
               <button
                 onClick={() => setDropdownOpen(!dropdownOpen)}
-                className="text-white bg-amber-800 hover:bg-amber-900 focus:ring-4 focus:outline-none focus:ring-amber-950 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center"
+                className="text-white hidden bg-amber-800 hover:bg-amber-900 focus:ring-4 focus:outline-none focus:ring-amber-950 font-medium rounded-lg text-sm px-5 py-2.5 text-center lg:inline-flex items-center"
                 type="button"
               >
                 {userName}
                 <svg className="w-2.5 h-2.5 ml-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                  <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 1 4 4 4-4"/>
+                </svg>
+              </button>
+
+              {/* Mobile */}
+              <button
+                onClick={() => setDropdownOpen(!dropdownOpen)}
+                className="text-white lg:hidden focus:ring-4 focus:outline-none focus:ring-amber-950 font-medium rounded-lg text-sm text-center inline-flex items-center"
+                type="button"
+              >
+                <div className="w-10  h-10 flex justify-center items-center text-gray-600 rounded-full bg-gray-300">
+                          <User className='' size={20}/>
+                </div>
+                <svg className="w-2.5 h-2.5 ml-3 text-black" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
                   <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 1 4 4 4-4"/>
                 </svg>
               </button>

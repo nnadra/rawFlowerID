@@ -60,12 +60,13 @@ const SignUp = () => {
       <div className="flex flex-col sm:w-[50%] w-[100%] items-center justify-center px-8">
         <div className="w-full max-w-md flex flex-col items-center px-5">
           <img src={Logo} alt="Logo" className="mb-6" />
-          <h1 className="text-4xl font-semibold mb-4">Create Your Account</h1>
+          <h1 className="text-4xl text-center font-semibold mb-4">Create Your Account</h1>
           <form className="flex flex-col space-y-5 w-full mt-10">
             
             {/* Nama */}
             <input 
-              type="text" 
+              type="text"
+              required
               placeholder="Your Name" 
               className={`px-5 py-4 w-full rounded-2xl transition duration-200 ${
                 nama ? 'bg-white text-black border border-[#4E2A1E]' : 'bg-[#E5D5B7] text-[#AE968E]'
@@ -77,6 +78,7 @@ const SignUp = () => {
             {/* Email */}
             <input 
               type="text" 
+              required
               placeholder="Email" 
               className={`px-5 py-4 w-full rounded-2xl transition duration-200 ${
                 email ? 'bg-white text-black border border-[#4E2A1E]' : 'bg-[#E5D5B7] text-[#AE968E]'
@@ -88,6 +90,7 @@ const SignUp = () => {
             {/* Password */}
             <input 
               type="password" 
+              required
               placeholder="Password" 
               className={`px-5 py-4 w-full rounded-2xl transition duration-200 ${
                 password ? 'bg-white text-black border border-[#4E2A1E]' : 'bg-[#E5D5B7] text-[#AE968E]'
@@ -99,7 +102,8 @@ const SignUp = () => {
             {/* Phone number */}
             <div className="flex flex-col space-y-1">
               <input 
-                type="text" 
+                type="number" 
+                required
                 placeholder="Phone number" 
                 className={`px-5 py-4 w-full rounded-2xl transition duration-200 ${
                   phone ? 'bg-white text-black border border-[#4E2A1E]' : 'bg-[#E5D5B7] text-[#AE968E]'
@@ -126,7 +130,7 @@ const SignUp = () => {
               type="button" 
               onClick={() => navigate("/signin")}
               className='text-center text-[#AC8A82]'>
-              Already have an account? Sign in
+              Already have an account? <span className='font-bold cursor-pointer'>Sign in</span>
             </button>
           </form>
         </div>

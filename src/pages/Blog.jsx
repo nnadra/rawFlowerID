@@ -13,13 +13,11 @@ function Blog() {
         
           <div className="lg:flex items-center justify-between">
             <div className="lg:flex justify-between gap-10">
-              <div className="text-8xl mb-3 lg:mb-0 font-veryvogue font-[401] w-[186px] max-md:text-4xl">
+              <div className="text-8xl text-[#4E2A1E] mb-3 lg:mb-0 font-veryvogue font-[401] w-[186px] max-md:text-4xl">
                 Blog
               </div>
-              <div className="lg:text-2xl mb-3 lg:mb-0 text-md font-[274] max-w-[800px]">
-                Lorem ipsum dolor sit amet, I Love you but your are jamet.
-                consectetur adipiscing elit. Vivamus dictum arcu at ultrices
-                semper. Nulla congue tempus
+              <div className="lg:text-2xl text-[#4E2A1E] mb-3 lg:mb-0 text-md font-[274] max-w-[800px]">
+                Discover heartfelt stories, floral inspirations, and thoughtful tips through our blog. From behind-the-scenes bouquet making to ideas for meaningful gifting, we share everything that blossoms beyond the petals.
               </div>
             </div>
             <div className="flex rounded-lg justify-between items-center px-5 py-3 text-xl text-yellow-50 bg-yellow-950">
