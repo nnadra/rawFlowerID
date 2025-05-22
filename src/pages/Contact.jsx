@@ -55,13 +55,9 @@ const Contact = () => {
         <div className="flex flex-col md:flex-row md:space-x-4 space-y-4 md:space-y-0">
           <input
             type="text"
-            placeholder="First Name"
+            placeholder="Full Name"
+            required
             name="from_name"
-            className="w-full rounded-md bg-[#FFF5E3] text-[#4E2A1E] py-3 px-4 placeholder:text-[#B19788]"
-          />
-          <input
-            type="text"
-            placeholder="Last Name"
             className="w-full rounded-md bg-[#FFF5E3] text-[#4E2A1E] py-3 px-4 placeholder:text-[#B19788]"
           />
         </div>
@@ -71,12 +67,14 @@ const Contact = () => {
           <input
             type="email"
             placeholder="Email"
+            required
             name="email_from"
             className="w-full rounded-md bg-[#FFF5E3] text-[#4E2A1E] py-3 px-4 placeholder:text-[#B19788]"
           />
           <input
             type="tel"
             placeholder="Phone Number"
+            required
             name="number_from"
             className="w-full rounded-md bg-[#FFF5E3] text-[#4E2A1E] py-3 px-4 placeholder:text-[#B19788]"
           />
@@ -95,7 +93,7 @@ const Contact = () => {
         {/* Button */}
         <button
           type="submit"
-          className="bg-[#FFC457] cursor-pointer text-[#4E2A1E] py-3 px-6 rounded-md font-semibold hover:bg-[#eab647] transition"
+          className="bg-[#FFC457] lg:w-fit w-full cursor-pointer text-[#4E2A1E] py-3 px-6 rounded-md font-semibold hover:bg-[#eab647] transition"
         >
           Send Message
         </button>

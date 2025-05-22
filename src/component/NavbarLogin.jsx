@@ -18,59 +18,58 @@ export default function NavbarLogin() {
 
   return (
     <div className="bg-[#FFF5E3] px-6 md:px-12 flex items-center justify-between">
-      
-        {/* Desktop */}
-        <button
-          onClick={() => setDropdownOpen(!dropdownOpen)}
-          className="text-black hidden focus:outline-none  font-medium rounded-lg text-lg py-2.5 text-center lg:inline-flex items-center"
-          type="button"
+      {/* Desktop */}
+      <button
+        onClick={() => setDropdownOpen(!dropdownOpen)}
+        className="text-black hidden focus:outline-none  font-medium rounded-lg text-lg py-2.5 text-center lg:inline-flex items-center"
+        type="button"
+      >
+        <div className="w-10 me-5  h-10 flex justify-center items-center text-gray-600 rounded-full bg-gray-300">
+          <User className="" size={20} />
+        </div>
+        {userName}
+        <svg
+          className="w-2.5 h-2.5 ml-3"
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 10 6"
         >
-          <div className="w-10 me-5  h-10 flex justify-center items-center text-gray-600 rounded-full bg-gray-300">
-            <User className="" size={20} />
-          </div>
-          {userName}
-          <svg
-            className="w-2.5 h-2.5 ml-3"
-            aria-hidden="true"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 10 6"
-          >
-            <path
-              stroke="currentColor"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="m1 1 4 4 4-4"
-            />
-          </svg>
-        </button>
+          <path
+            stroke="currentColor"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
+            d="m1 1 4 4 4-4"
+          />
+        </svg>
+      </button>
 
-        {/* Mobile */}
-        <button
-          onClick={() => setDropdownOpen(!dropdownOpen)}
-          className="text-white lg:hidden font-medium rounded-lg text-sm text-center inline-flex items-center"
-          type="button"
+      {/* Mobile */}
+      <button
+        onClick={() => setDropdownOpen(!dropdownOpen)}
+        className="text-white lg:hidden font-medium rounded-lg text-sm text-center inline-flex items-center"
+        type="button"
+      >
+        <div className="w-10  h-10 flex justify-center items-center text-gray-600 rounded-full bg-gray-300">
+          <User className="" size={20} />
+        </div>
+        <svg
+          className="w-2.5 h-2.5 ml-3 text-black"
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 10 6"
         >
-          <div className="w-10  h-10 flex justify-center items-center text-gray-600 rounded-full bg-gray-300">
-            <User className="" size={20} />
-          </div>
-          <svg
-            className="w-2.5 h-2.5 ml-3 text-black"
-            aria-hidden="true"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 10 6"
-          >
-            <path
-              stroke="currentColor"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="m1 1 4 4 4-4"
-            />
-          </svg>
-        </button>
+          <path
+            stroke="currentColor"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
+            d="m1 1 4 4 4-4"
+          />
+        </svg>
+      </button>
 
       <img src={Logo} alt="logo" className="lg:w-26 w-16 h-auto" />
 

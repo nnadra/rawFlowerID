@@ -25,9 +25,9 @@ export default function SignIn() {
   };
 
   return (
-    <div className="h-screen flex bg-[#FFF5E3]">
+    <div className="flex h-screen bg-[#FFF5E3]">
       {/* KIRI: Form */}
-      <div className="flex flex-col sm:w-1/2 w-full items-center justify-center px-8">
+      <div className="flex flex-col w-full items-center justify-center px-8">
         <img src={Logo} alt="Logo" className="mb-6" />
         <h1 className="text-4xl font-semibold mb-10 text-center">
           Hi, Welcome back! 👋🏻
@@ -80,13 +80,13 @@ export default function SignIn() {
       </div>
 
       {/* KANAN: Ilustrasi */}
-      <div className="relative sm:block hidden sm:w-1/2">
-        <img
-          src={PicSignin}
-          alt="Sign In Illustration"
-          className="absolute w-[90%] h-full object-cover rounded-lg"
-        />
-      </div>
+      <div className="relative w-[100%] sm:flex hidden">
+              <img
+                src={PicSignin}
+                alt="Pic SignUp"
+                className="absolute w-[97%] h-[97%] object-cover m-3 rounded-lg"
+              />
+            </div>
     </div>
   );
 }

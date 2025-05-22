@@ -47,7 +47,7 @@ const Navbar = () => {
       <img src={Logo} alt="logo" className="lg:w-26 w-16 h-auto" />
 
       <div className="flex gap-4 items-center">
-        {!userName && isLandingPage ? (
+        {!userName ? (
           <>
             <button onClick={() => navigate('/signin')} className="hidden md:block bg-[#4E2A1E] text-white font-medium text-base py-2 px-5 cursor-pointer">
               Sign In
@@ -59,7 +59,7 @@ const Navbar = () => {
               <User/>
             </div>
           </>
-        ) : userName ? (
+        ) : userName && isLandingPage ? (
           <div className="relative">
             <div className="flex gap-5">
               <div className="hidden lg:flex w-13 h-13 justify-center items-center text-gray-600 rounded-full bg-gray-300">
