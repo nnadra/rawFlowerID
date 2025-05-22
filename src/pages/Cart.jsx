@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { X, Plus, Minus } from "lucide-react";
+import useCartStore from "../data/useCartStore";
 
 
 import ImgCartProduct from "../assets/cart-img1.svg";
 import ImgCartProduct2 from "../assets/cart-img2.svg";
+
 
 const Cart = () => {
   const [isCartOpen, setIsCartOpen] = useState(true);
@@ -26,6 +28,8 @@ const Cart = () => {
     },
   ]);
 
+  const customBouquets = useCartStore((state) => state.cart);
+  
   const removeItem = (id) => {
     setCartItems(cartItems.filter((item) => item.id !== id));
   };
@@ -128,6 +132,30 @@ const Cart = () => {
           </button>
         </div>
       </div>
+
+      {/* Custom Bouquets */}
+      {customBouquets.map((bouquet) => (
+        <div
+          key={bouquet.id}
+          className="py-4 border-b border-[#cdb8a1] flex items-start gap-4"
+        >
+          <div className="w-[90px] h-[80px] bg-[#e5d5b7] rounded-sm flex items-center justify-center text-xs text-[#3e1f1f] text-center p-2">
+            Custom<br />Bouquet
+          </div>
+          <div className="flex-1">
+            <h3 className="text-[22px] font-medium text-[#3e1f1f] leading-none font-veryvogue">
+              Custom Bouquet
+            </h3>
+            <p className="text-sm font-light text-[#3e1f1f] mb-2">
+              {bouquet.items.length} item(s)
+            </p>
+            <p className="text-sm text-[#3e1f1f] mt-8">
+              Rp {bouquet.total.toLocaleString("id-ID")}
+            </p>
+          </div>
+        </div>
+      ))}
+
     </div>
   );
 };

@@ -108,18 +108,30 @@ export default function DetailProduct() {
 
             {/* Button Add to Cart + Love */}
             <div className="flex items-center gap-4 mt-6">
-              <button  onClick={() =>
-              addToCart({
-                product_id: detailProduct.id,
-                quantity: 1, // default 1
-              }).then(() => {
-                toast.success('Produk berhasil ditambahkan ke cart!');
-              }).catch(() => {
-                toast.error('Gagal menambahkan produk ke cart!');
-              })}
-              className="bg-[#4E2A1E] text-white px-10 py-2 rounded-lg text-lg hover:bg-[#3c2218] transition">
-                Add to cart
-              </button>
+              <button
+              onClick={async () => {
+                if (!detailProduct?.id) {
+                  toast.error('Produk belum siap ditambahkan.');
+                  return;
+                }
+
+                try {
+                  await addToCart({ 
+                    product_id: detailProduct.id, 
+                    quantity: 1 
+                  });
+                  toast.success('Produk berhasil ditambahkan ke cart!');
+                } catch (err) {
+                  toast.error('Gagal menambahkan produk ke cart!');
+                  console.error(err);
+                }
+              }}
+              className="bg-[#4E2A1E] text-white px-10 py-2 rounded-lg text-lg hover:bg-[#3c2218] transition"
+            >
+              Add to cart
+            </button>
+
+
               <button
                 onClick={() => setLiked(!liked)}
                 className="w-10 h-10 border border-[#4E2A1E] rounded-lg flex items-center justify-center"

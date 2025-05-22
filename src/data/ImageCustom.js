@@ -10,6 +10,7 @@ const useImageCustom = create((set) => ({
     set((state) => ({
       images: state.images.filter((_, i) => i !== index),
     })),
+    clearImages: () => set({ images: [] }) //buat reset semua gambar custom
 }));
 
 export default useImageCustom;
