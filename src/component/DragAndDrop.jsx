@@ -6,6 +6,14 @@ import useImageCustom from '../data/ImageCustom';
 
 const URLImage = ({ image }) => {
   const [img] = useImage(image.src);
+  // React.useEffect(() => {
+  //   if (!img) {
+  //     console.log("⏳ Masih loading:", image.src);
+  //   } else {
+  //     console.log("✅ Loaded:", image.src);
+  //   }
+  // }, [img, image.src]);
+  if (!img) return null;
 
   return (
     <KonvaImage
@@ -14,6 +22,8 @@ const URLImage = ({ image }) => {
       y={image.y}
       offsetX={img ? img.width / 2 : 0}
       offsetY={img ? img.height / 2 : 0}
+      width={100} // misalnya ukuran gambar 100px
+      height={100}
       draggable
     />
   );
@@ -41,6 +51,8 @@ const DragAndDrop = () => {
   const addImage = useImageCustom((state) => state.addImage);
   const removeImage = useImageCustom((state) => state.removeImage);
 
+  console.log("📦 Semua images dari Zustand:", images);
+
   const stageRef = React.useRef();
   const dragUrl = React.useRef();
 
@@ -58,11 +70,14 @@ const DragAndDrop = () => {
           e.preventDefault();
           stageRef.current.setPointersPositions(e);
           const pos = stageRef.current.getPointerPosition();
+          if (!pos) return;
+          const fallbackPos = { x: stageWidth / 2, y: stageHeight / 2 };
+          const imagePosition = pos || fallbackPos;
           const src = e.dataTransfer.getData("src");
           const price = parseInt(e.dataTransfer.getData("price")) || 0; //ambil harga
 
           if (src) {
-            addImage({ ...pos, src, price }); //kirim ke Zustand
+            addImage({ ...imagePosition, src, price }); //kirim ke Zustand
           }
         }}
         onDragOver={(e) => e.preventDefault()}
