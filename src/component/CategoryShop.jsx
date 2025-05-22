@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import CardShop from './CardShop';
 import DropDownShop from './DropDownShop';
 import publicAxios from '../pages/api/axios';
+import axiosClient from '../utils/helper';
 
 const CategoryShop = () => {
   // parameter 1: isi sekarang, parameter 2: buat ubah isi parameter 1
@@ -9,7 +10,7 @@ const CategoryShop = () => {
 
   // Fetch data produk dari API
   useEffect(() => {
-    publicAxios('/products')
+    axiosClient('/api/products')
       .then((response) => {
         setProducts(response.data.data);  // Sesuaikan dengan struktur data dari backend
       })

@@ -73,6 +73,7 @@ const CardItem = ({ item }) => (
 );
 
 // Komponen konten tab (grid biasa)
+// Komponen konten tab (grid biasa)
 const TabContent = ({ data }) => (
   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 py-4">
     {data.map((item, idx) => (
@@ -82,6 +83,7 @@ const TabContent = ({ data }) => (
 );
 
 // Komponen utama
+// Komponen utama
 const ComponentCustom = () => {
   const [activeTab, setActiveTab] = useState('flowers');
   const [customData, setCustomData] = useState({
@@ -90,16 +92,18 @@ const ComponentCustom = () => {
         papers: [],
       });
   const images = useImageCustom((state) => state.images);
-
   const totalPrice = images.reduce((acc, item) => acc + (item.price || 0), 0);
 
   useEffect(() => {
     axiosClient.get('api/custom')
-    .then((res) => {setCustomData(res.data);})
-    .catch((err) => {
-      console.error('Error fetching custom items', err);
-    }) 
-  })
+      .then((res) => {
+        setCustomData(res.data);
+      })
+      .catch((err) => {
+        console.error('Error fetching custom items', err);
+      });
+  }, []); 
+  
   // Mapping data sesuai tab
   const tabContent = {
     flowers: <TabContent data={customData.flowers || []} />,

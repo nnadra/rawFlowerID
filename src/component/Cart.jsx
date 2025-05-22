@@ -1,8 +1,10 @@
 import { X } from "lucide-react";
 import { useCart } from "./CartContext";
 import CartItem from "./CartItem";
+import { useNavigate } from "react-router-dom";
 
 const Cart = () => {
+  const navigate = useNavigate();
   const {
     cartItems,
     removeItem,
@@ -68,7 +70,13 @@ const Cart = () => {
             >
               Continue Shopping
             </button>
-            <button className="w-full sm:flex-1 bg-[#3e1f1f] text-white py-2 rounded text-base">
+            <button
+              onClick={() => {
+                setIsCartOpen(false);
+                navigate("/checkout");
+              }}
+              className="w-full cursor-pointer sm:flex-1 bg-[#3e1f1f] text-white py-2 rounded text-base"
+            >
               Checkout
             </button>
           </div>

@@ -13,6 +13,8 @@ import BlogPage from './pages/BlogPage';
 import DetailBlog from './pages/DetailBlog';
 import Custom from './pages/Custom';
 import { useCart } from './component/CartContext';
+import CheckoutDetail from './pages/CheckoutDetail';
+import OrderStatus from './pages/OrderStatus';
 
 const AppContent = () => {
   const location = useLocation();
@@ -43,6 +45,8 @@ const AppContent = () => {
         <Route path="/detailBlog" element={<DetailBlog />} />
         <Route path="/detailproduk/:id" element={<DetailProduct />} />
         <Route path="/customBouquet" element={<Custom />} />
+        <Route path="/checkout" element={<CheckoutDetail />} />
+        <Route path="/status" element={<OrderStatus />} />
       </Routes>
     </div>
   );
