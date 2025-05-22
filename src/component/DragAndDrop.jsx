@@ -4,9 +4,9 @@ import { Stage, Layer, Image as KonvaImage } from 'react-konva';
 import useImage from 'use-image';
 import useImageCustom from '../data/ImageCustom';
 
+// Komponen gambar hasil drag
 const URLImage = ({ image }) => {
   const [img] = useImage(image.src);
-
   return (
     <KonvaImage
       image={img}
@@ -19,9 +19,9 @@ const URLImage = ({ image }) => {
   );
 };
 
+// Background statis (gambar kertas buket misalnya)
 const StaticBackground = ({ src, stageWidth, stageHeight }) => {
   const [img] = useImage(src);
-
   return (
     img && (
       <KonvaImage
@@ -36,6 +36,7 @@ const StaticBackground = ({ src, stageWidth, stageHeight }) => {
   );
 };
 
+// Komponen utama
 const DragAndDrop = () => {
   const images = useImageCustom((state) => state.images);
   const addImage = useImageCustom((state) => state.addImage);
@@ -43,33 +44,36 @@ const DragAndDrop = () => {
 
   const stageRef = React.useRef();
   const dragUrl = React.useRef();
-
   const [selectedIndex, setSelectedIndex] = React.useState(null);
 
-  const stageWidth = window.innerWidth * 0.8; // 50% layar, biar pas sebelahan
-  const stageHeight = window.innerHeight - 150; // supaya muat, minus footer height
-
+  const stageWidth = window.innerWidth * 0.8;
+  const stageHeight = window.innerHeight - 150;
 
   return (
     <div className="h-screen flex flex-col bg-white">
+      {/* Area drag & drop */}
       <div
-        className="flex-1 flex justify-center items-center border-b-1 border-amber-950"
+        className="flex-1 flex justify-center items-center border-b border-amber-950"
         onDrop={(e) => {
           e.preventDefault();
           stageRef.current.setPointersPositions(e);
           const pos = stageRef.current.getPointerPosition();
-          const src = e.dataTransfer.getData("src");
-          const price = parseInt(e.dataTransfer.getData("price")) || 0; //ambil harga
+          const src = e.dataTransfer.getData('src');
+          const price = parseInt(e.dataTransfer.getData('price')) || 0;
 
           if (src) {
-            addImage({ ...pos, src, price }); //kirim ke Zustand
+            addImage({ ...pos, src, price });
           }
         }}
         onDragOver={(e) => e.preventDefault()}
       >
         <Stage width={stageWidth} height={stageHeight} ref={stageRef}>
           <Layer>
-            <StaticBackground src="/src/assets/paper-bouquet.svg" stageWidth={stageWidth} stageHeight={stageHeight} />
+            <StaticBackground
+              src="/src/assets/paper-bouquet.svg"
+              stageWidth={stageWidth}
+              stageHeight={stageHeight}
+            />
             {images.map((image, index) => (
               <URLImage key={index} image={image} />
             ))}
@@ -77,13 +81,14 @@ const DragAndDrop = () => {
         </Stage>
       </div>
 
+      {/* Preview dan hapus item */}
       <div className="bg-[#FFF5E3] h-[150px] overflow-x-auto border-t-4 border-amber-950">
         <div className="flex items-center gap-4 px-4 py-4">
           {images.map((image, index) => (
             <div key={index} className="relative">
               <div
                 className={`py-2 px-5 bg-white rounded-lg shadow-lg cursor-pointer ${
-                  selectedIndex === index ? 'border-1 border-amber-950' : ''
+                  selectedIndex === index ? 'border border-amber-950' : ''
                 }`}
                 onClick={() => setSelectedIndex(index)}
               >
