@@ -1,4 +1,7 @@
 import React from 'react';
+import { Toaster } from 'react-hot-toast';
+import { useCart } from './component/CartContext';
+
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './component/Navbar';
 import NavbarLogin from './component/NavbarLogin';
@@ -12,7 +15,6 @@ import DetailProduct from './pages/DetailProduct';
 import BlogPage from './pages/BlogPage';
 import DetailBlog from './pages/DetailBlog';
 import Custom from './pages/Custom';
-import { useCart } from './component/CartContext';
 import CheckoutDetail from './pages/CheckoutDetail';
 import OrderStatus from './pages/OrderStatus';
 
@@ -27,7 +29,9 @@ const AppContent = () => {
 
   return (
     <div className="bg-[#FFF5E3] min-h-screen overflow-hidden">
+      
       <Banner />
+       <Toaster position="bottom-center" reverseOrder={false} />
 
       {!hideNavbar.includes(location.pathname) && (
         location.pathname === '/'
