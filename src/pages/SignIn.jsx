@@ -14,37 +14,60 @@ export default function SignIn() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await sanctumLogin({ email, password });
-      const { user, access_token } = res.data;
-      localStorage.setItem('user', JSON.stringify(user));
-      localStorage.setItem('token', access_token);
-      navigate('/shop');
+      const response = await fetch('http://127.0.0.1:8000/api/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email, password }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        // Simpan ke localStorage
+        localStorage.setItem('user', JSON.stringify(data.user));
+        localStorage.setItem('token', data.access_token);
+
+        // Redirect sesuai role
+        if (data.user.role === 1) {
+          navigate("/admin/dashboard");
+        } else {
+          navigate("/shop");
+        }
+      } else {
+        setError(data.message || 'Login failed');
+      }
     } catch (err) {
       setError(err.response?.data?.message || 'Login gagal');
     }
   };
 
   return (
-    <div className="flex h-screen bg-[#FFF5E3]">
-      {/* KIRI: Form */}
-      <div className="flex flex-col w-full items-center justify-center px-8">
-        <img src={Logo} alt="Logo" className="mb-6" />
-        <h1 className="text-4xl font-semibold mb-10 text-center">
-          Hi, Welcome back! 👋🏻
-        </h1>
-        <form
-          onSubmit={handleSubmit}
-          className="w-full max-w-md space-y-5"
-        >
-          {error && <div className="text-red-600">{error}</div>}
+    <div className="h-screen flex overflow-hidden bg-[#FFF5E3] justify-between">
+      {/* form kiri */}
+      <div className="flex flex-col sm:w-[50%] w-[100%] items-center justify-center px-8">
+        <div className="w-full max-w-md flex flex-col items-center px-5">
+          <img src={Logo} alt="Logo" className="mb-6" />
+          <h1 className="text-4xl font-semibold mb-10 lg:text-left text-center">Hi, Welcome back! 👋🏻</h1>
+          <form onSubmit={handleSubmit} className="flex flex-col space-y-5 w-full mt-10">
+            
+            {error && <div className="text-red-600 mb-4">{error}</div>}
 
-          <input
-            type="email"
-            placeholder="Email"
-            required
-            value={email}
-            onChange={e => setEmail(e.target.value)}
-            className={`px-5 py-4 w-full rounded-2xl transition-colors duration-200 ${
+            <button 
+              type="button" 
+              className="bg-[#4E2A1E] text-white py-4 px-10 rounded-2xl font-medium hover:bg-[#3c2118] transition">
+              Sign In with Google
+            </button>
+            <button className='color-[#4E2A1E]'>Or</button>
+
+            <input 
+              type="email" 
+              placeholder="Email" 
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+              className={`px-5 py-4 rounded-2xl transition-colors duration-200 ${
                 email ? 'bg-white text-black border border-[#4E2A1E]' : 'bg-[#E5D5B7] text-[#AE968E]'
               }`}
           />
@@ -88,5 +111,6 @@ export default function SignIn() {
               />
             </div>
     </div>
-  );
-}
+    </div>
+  )}
+
