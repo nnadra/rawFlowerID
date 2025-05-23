@@ -7,18 +7,13 @@ import ImgContent3 from '../assets/img-detail3.svg';
 
 const blogDetailData = {
    
-  date: "2 Apr, 2018",
   category: "Mind",
-  title: "How to make the most of your childhood",
-  author: "Rosie Manning",
+  author: "Arindita",
   heroImage: Img1,
-  paragraphs: [
-    "People is safe to say that Extraversion and Introversion are probably the oldest notions in personality theories.",
-    "It is safe to say that Extraversion and Introversion are probably the oldest notions in the history of personality theories..."
-  ],
+  paragraphs: 
+    "It is safe to say that Extraversion and Introversion are probably the oldest notions in the history of personality theories...",
   quote: {
-    text: "It is safe to say that Extraversion and Introversion are probably the oldest notions in the history of personality theories.",
-    author: "Rosie Manning, Human"
+    author: "Arindita, Human"
   },
   contentImages: [ImgContent1, ImgContent2, ImgContent3],
   relatedArticles: [
