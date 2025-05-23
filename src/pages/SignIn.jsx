@@ -14,13 +14,6 @@ export default function SignIn() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-<<<<<<< HEAD
-      const res = await sanctumLogin({ email, password });
-      const { user, access_token } = res.data;
-      localStorage.setItem('user', JSON.stringify(user));
-      localStorage.setItem('token', access_token);
-      navigate('/shop');
-=======
       const response = await fetch('http://127.0.0.1:8000/api/login', {
         method: 'POST',
         headers: {
@@ -45,35 +38,12 @@ export default function SignIn() {
       } else {
         setError(data.message || 'Login failed');
       }
->>>>>>> ddbd9b2 (blog ambil data dari backend)
     } catch (err) {
       setError(err.response?.data?.message || 'Login gagal');
     }
   };
 
   return (
-<<<<<<< HEAD
-    <div className="flex h-screen bg-[#FFF5E3]">
-      {/* KIRI: Form */}
-      <div className="flex flex-col w-full items-center justify-center px-8">
-        <img src={Logo} alt="Logo" className="mb-6" />
-        <h1 className="text-4xl font-semibold mb-10 text-center">
-          Hi, Welcome back! 👋🏻
-        </h1>
-        <form
-          onSubmit={handleSubmit}
-          className="w-full max-w-md space-y-5"
-        >
-          {error && <div className="text-red-600">{error}</div>}
-
-          <input
-            type="email"
-            placeholder="Email"
-            required
-            value={email}
-            onChange={e => setEmail(e.target.value)}
-            className={`px-5 py-4 w-full rounded-2xl transition-colors duration-200 ${
-=======
     <div className="h-screen flex overflow-hidden bg-[#FFF5E3] justify-between">
       {/* form kiri */}
       <div className="flex flex-col sm:w-[50%] w-[100%] items-center justify-center px-8">
@@ -98,7 +68,6 @@ export default function SignIn() {
               onChange={(e) => setEmail(e.target.value)}
               required
               className={`px-5 py-4 rounded-2xl transition-colors duration-200 ${
->>>>>>> ddbd9b2 (blog ambil data dari backend)
                 email ? 'bg-white text-black border border-[#4E2A1E]' : 'bg-[#E5D5B7] text-[#AE968E]'
               }`}
           />
@@ -142,5 +111,6 @@ export default function SignIn() {
               />
             </div>
     </div>
-  );
-}
+    </div>
+  )}
+
