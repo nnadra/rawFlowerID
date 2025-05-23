@@ -1,13 +1,10 @@
 import { useState } from 'react';
-import { useCart } from '../component/CartContext'; // <- Ini sudah betul
-import toast from 'react-hot-toast';
-
 import Images from '../assets/FlowerBg.png';
 import Images2 from '../assets/bungaPink.png';
 import Images3 from '../assets/bungamatahari.png';
-import useImageCustom from '../data/useImageCustom';
+import useImageCustom from '../data/ImageCustom'; 
 
-// Data bunga
+// Data produk bunga untuk tiap kategori/tab
 const flowerData = [
   { src: Images, name: 'Red Rose', price: 2000 },
   { src: Images2, name: 'White Rose', price: 2500 },
@@ -16,21 +13,51 @@ const flowerData = [
   { src: Images, name: 'Sunflower', price: 3500 },
   { src: Images, name: 'Daisy', price: 2200 },
 ];
-const driedFlowersData = [ { src: Images, name: 'Lavender', price: 1500 }, { src: Images, name: 'Baby Breath', price: 1200 }, { src: Images, name: 'Statice', price: 1300 } ];
-const artificialFlowersData = [ { src: Images, name: 'Silk Rose', price: 1800 }, { src: Images, name: 'Plastic Tulip', price: 1400 }, { src: Images, name: 'Fabric Daisy', price: 1600 } ];
-const bowData = [ { src: Images, name: 'Red Bow', price: 800 }, { src: Images, name: 'Gold Bow', price: 1000 } ];
-const wrappingData = [ { src: Images, name: 'Brown Paper', price: 300 }, { src: Images, name: 'Cellophane', price: 500 } ];
-const additionalData = [ { src: Images, name: 'Greeting Card', price: 200 }, { src: Images, name: 'Ribbon', price: 150 } ];
+
+// Data produk dried flowers untuk tab2
+const driedFlowersData = [
+  { src: Images, name: 'Lavender', price: 1500 },
+  { src: Images, name: 'Baby Breath', price: 1200 },
+  { src: Images, name: 'Statice', price: 1300 },
+];
+
+// Data produk artificial flowers untuk tab3
+const artificialFlowersData = [
+  { src: Images, name: 'Silk Rose', price: 1800 },
+  { src: Images, name: 'Plastic Tulip', price: 1400 },
+  { src: Images, name: 'Fabric Daisy', price: 1600 },
+];
+
+// Data produk bow untuk tab4
+const bowData = [
+  { src: Images, name: 'Red Bow', price: 800 },
+  { src: Images, name: 'Gold Bow', price: 1000 },
+];
+
+// Data produk wrapping untuk tab5
+const wrappingData = [
+  { src: Images, name: 'Brown Paper', price: 300 },
+  { src: Images, name: 'Cellophane', price: 500 },
+];
+
+// Data produk additional untuk tab7
+const additionalData = [
+  { src: Images, name: 'Greeting Card', price: 200 },
+  { src: Images, name: 'Ribbon', price: 150 },
+];
+
+// Tabs
 const tabs = [
   { id: 'tab1', label: 'Fresh Flowers' },
   { id: 'tab2', label: 'Dried Flowers' },
   { id: 'tab3', label: 'Artificial Flowers' },
   { id: 'tab4', label: 'Bow' },
   { id: 'tab5', label: 'Wrapping' },
-  { id: 'tab6', label: 'Bow' },
+  { id: 'tab6', label: 'Bow' }, // Kamu punya dua tab "Bow" sama, aku biarkan sesuai data kamu
   { id: 'tab7', label: 'Additional' },
 ];
 
+// Komponen kartu produk
 const CardItem = ({ item }) => (
   <div className="py-8 px-8 bg-white rounded-2xl shadow-lg flex flex-col items-center min-w-[150px]">
     <img
@@ -50,6 +77,7 @@ const CardItem = ({ item }) => (
   </div>
 );
 
+// Komponen konten tab (grid biasa)
 const TabContent = ({ data }) => (
   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 py-4">
     {data.map((item, idx) => (
@@ -58,29 +86,14 @@ const TabContent = ({ data }) => (
   </div>
 );
 
+// Komponen utama
 const ComponentCustom = () => {
   const [activeTab, setActiveTab] = useState('tab1');
   const images = useImageCustom((state) => state.images);
+
   const totalPrice = images.reduce((acc, item) => acc + (item.price || 0), 0);
 
-  const { setCustomBouquetCartItem } = useCart();
-
-const handleAddToCart = () => {
-  const customItem = {
-    id: 'custom_bouquet',
-    quantity: 1,
-    price: totalPrice,
-    product: {
-      name: 'Custom Bouquet',
-      category: 'Custom',
-      images: ['/path/to/image.jpg'], // ganti dengan gambar hasil custom
-    },
-  };
-
-  setCustomBouquetCartItem(customItem);
-  toast.success('Custom bouquet berhasil ditambahkan ke cart (dummy)');
-};
-
+  // Mapping data sesuai tab
   const tabContent = {
     tab1: <TabContent data={flowerData} />,
     tab2: <TabContent data={driedFlowersData} />,
@@ -96,12 +109,19 @@ const handleAddToCart = () => {
       {/* Header */}
       <div className="p-4">
         <h1 className="text-2xl font-bold text-amber-950 text-center">Custom Bouquet</h1>
-        <div className="my-5 flex space-x-3 overflow-x-auto scrollbar-hide px-2" style={{ WebkitOverflowScrolling: 'touch' }}>
+
+        {/* Tabs navigasi dengan scroll horizontal */}
+        <div
+          className="my-5 flex space-x-3 overflow-x-auto scrollbar-hide px-2"
+          style={{ WebkitOverflowScrolling: 'touch' }}
+        >
           {tabs.map((tab) => (
             <button
               key={tab.id}
               className={`flex-shrink-0 px-4 py-2 text-lg font-light rounded-lg transition-all whitespace-nowrap ${
-                activeTab === tab.id ? 'bg-amber-950 text-white' : 'text-amber-950/64 hover:text-amber-900'
+                activeTab === tab.id
+                  ? 'bg-amber-950 text-white'
+                  : 'text-amber-950/64 hover:text-amber-900'
               }`}
               onClick={() => setActiveTab(tab.id)}
             >
@@ -120,11 +140,8 @@ const handleAddToCart = () => {
           <p>Total:</p>
           <p className="font-bold">Rp {totalPrice.toLocaleString('id-ID')}</p>
         </div>
-        <button
-          onClick={handleAddToCart}
-          className="w-full mt-3 p-5 rounded-xl bg-amber-950 text-white text-2xl"
-        >
-          Checkut
+        <button className="w-full mt-3 p-5 rounded-xl bg-amber-950 text-white text-2xl">
+          Add to cart
         </button>
       </div>
     </div>
