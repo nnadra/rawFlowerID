@@ -54,7 +54,8 @@ function Blog() {
         {featuredBlog && (
           <div className="self-center mt-9 w-full max-md:max-w-full">
             <div className="relative flex flex-col px-9 pt-8 pb-12 w-full min-h-[487px] max-md:px-5 max-md:max-w-full z-10">
-              <img src={`http://localhost:8000/storage/${featuredBlog.image}`} className="absolute inset-0 w-full h-full object-cover rounded-2xl" />
+              <img src={`http://localhost:8000/storage/${featuredBlog.image}`} 
+                  className=" absolute inset-0  brightness-85 w-full h-full object-cover rounded-2xl" />
               <div className="relative max-w-full">
                 <div className="lg:text-2xl text-lg lg:text-[#ECDEC3] text-white">Blog | {featuredBlog.published_at}</div>
                 <div className="text-5xl text-white font-[Playfair_Display] max-md:text-4xl">
