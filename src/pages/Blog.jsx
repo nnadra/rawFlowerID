@@ -18,7 +18,7 @@ function Blog() {
   }, []);
 
   const featuredBlog = blogs[0];
-  const otherBlogs = blogs.slice(1, 3);
+  const otherBlogs = blogs.slice(1, 4);
 
   return (
     <div className="flex flex-col overflow-hidden bg-yellow-50">
@@ -27,10 +27,10 @@ function Blog() {
         {/* Hero Section */}
         <div className="lg:flex items-center justify-between">
           <div className="lg:flex justify-between gap-10">
-            <div className="text-8xl mb-3 lg:mb-0 font-veryvogue font-[401] w-[186px] max-md:text-4xl">
+            <div className="text-8xl mb-3 lg:mb-0 font-veryvogue text-amber-900 font-[401] w-[186px] max-md:text-4xl">
               Blog
             </div>
-            <div className="lg:text-2xl mb-3 lg:mb-0 text-md font-[274] max-w-[800px]">
+            <div className="lg:text-2xl mb-3 lg:mb-0 text-md text-amber-900 font-[274] max-w-[800px]">
               Discover heartfelt stories, floral inspirations, and thoughtful
               tips through our blog. From behind-the-scenes bouquet making to
               ideas for meaningful gifting, we share everything that blossoms
