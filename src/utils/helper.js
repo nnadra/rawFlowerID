@@ -9,7 +9,7 @@ import axios from "axios";
 // };
 
 const axiosClient = axios.create({
-  baseURL: 'http://127.0.0.1:8008', // Ganti sesuai backend kamu
+  baseURL: 'http://127.0.0.1:8000', // Ganti sesuai backend kamu
   withCredentials: true,
 });
 
