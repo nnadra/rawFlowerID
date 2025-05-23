@@ -14,9 +14,9 @@ import DetailProduct from './pages/DetailProduct';
 import BlogPage from './pages/BlogPage';
 import DetailBlog from './pages/DetailBlog';
 import Custom from './pages/Custom';
-import { useCart } from './component/CartContext';
 import CheckoutDetail from './pages/CheckoutDetail';
 import OrderStatus from './pages/OrderStatus';
+import Cart from './pages/Cart';
 
 const AppContent = () => {
   const location = useLocation();
@@ -50,6 +50,9 @@ const AppContent = () => {
         <Route path="/cart" element={<Cart />} />
         <Route path="/detailproduk/:id" element={<DetailProduct />} />
         <Route path="/customBouquet" element={<Custom/>} />
+        <Route path="/checkout" element={<CheckoutDetail/>} />
+        <Route path="/status" element={<OrderStatus/>} />
+        <Route path="/detailBlog/:id" element={<DetailBlog/>} />
         <Route path="/" element={<Home />} />
       </Routes>
     </div>

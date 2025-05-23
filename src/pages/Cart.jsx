@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { X, Plus, Minus } from "lucide-react";
-import useCartStore from "../data/useCartStore";
+// import useCartStore from "../data/useCartStore";
 
 
 import ImgCartProduct from "../assets/cart-img1.svg";
@@ -8,25 +8,6 @@ import ImgCartProduct2 from "../assets/cart-img2.svg";
 
 
 const Cart = () => {
-  const [isCartOpen, setIsCartOpen] = useState(true);
-  const [cartItems, setCartItems] = useState([
-    {
-      id: 1,
-      image: ImgCartProduct,
-      title: "Pretty Cout",
-      description: "Bouquet fresh",
-      price: 350000,
-      quantity: 1,
-    },
-    {
-      id: 2,
-      image: ImgCartProduct2,
-      title: "Pretty Cout",
-      description: "Bouquet fresh",
-      price: 185000,
-      quantity: 1,
-    },
-  ]);
 
   const customBouquets = useCartStore((state) => state.cart);
   
@@ -143,8 +124,13 @@ const Cart = () => {
             Custom<br />Bouquet
           </div>
           <div className="flex-1">
-            <h3 className="text-[22px] font-medium text-[#3e1f1f] leading-none font-veryvogue">
-              Custom Bouquet
+            <h3 className="text-[22px] font-medium text-[#3e1f1f] leading-none font-veryvogue ">
+          {item.title}{" "}
+          {item.isCustom && (
+            <span className="text-sm font-light text-[#3e1f1f]">
+              [Custom Bouquet]
+            </span>
+          )}
             </h3>
             <p className="text-sm font-light text-[#3e1f1f] mb-2">
               {bouquet.items.length} item(s)
