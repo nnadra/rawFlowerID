@@ -1,11 +1,25 @@
 import { X, Plus, Minus } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const CartItem = ({ item, onRemove, onIncrease, onDecrease }) => {
-  // console.log("item di CartItem:", item);
-  // const [isCartOpen, setIsCartOpen] = useState(true); // default true biar kelihatan
+  const [localQuantity, setLocalQuantity] = useState(item.quantity);
 
-  // if (!isCartOpen) return null; // cart hilang saat false
+  useEffect(() => {
+    setLocalQuantity(item.quantity);
+  }, [item.quantity]);
+
+  const handleIncrease = () => {
+    const newQty = localQuantity + 1;
+    setLocalQuantity(newQty);
+    onIncrease(item.id, newQty);
+  };
+
+  const handleDecrease = () => {
+    if (localQuantity <= 1) return;
+    const newQty = localQuantity - 1;
+    setLocalQuantity(newQty);
+    onDecrease(item.id, newQty);
+  };
 
   return (
     <div className="py-4 border-b border-[#cdb8a1] flex items-start gap-4">
@@ -35,7 +49,7 @@ const CartItem = ({ item, onRemove, onIncrease, onDecrease }) => {
             className="w-4 h-4 cursor-pointer"
             onClick={onDecrease}
           />
-          <span className="text-sm">{item.quantity}</span>
+          <span className="text-sm">{localQuantity}</span>
           <Plus
             className="w-4 h-4 cursor-pointer"
             onClick={onIncrease}
