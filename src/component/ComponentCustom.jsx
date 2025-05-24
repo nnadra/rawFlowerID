@@ -3,27 +3,6 @@ import useImageCustom from '../data/ImageCustom'; // custom hook dari zustand at
 import axiosClient, { generateTabsFromData } from '../utils/helper';
 import { useNavigate } from "react-router-dom";
 
-
-// Komponen kartu produk
-// const CardItem = ({ item }) => (
-//   <div className="py-8 px-8 bg-white rounded-2xl shadow-lg flex flex-col items-center min-w-[150px]">
-//     <img
-//       src={item.image}
-//       alt={item.nama}
-//       draggable
-//       onDragStart={(e) => {
-//         e.dataTransfer.setData('src', item.image);
-//         e.dataTransfer.setData('price', item.harga);
-//       }}
-//       className="w-18 mb-4"
-//     />
-//     <div className="text-center">
-//       <h3 className="customproduct text-lg font-bold">{item.nama}</h3>
-//       <p className="price text-lg">Rp {Number(item.harga ?? 0).toLocaleString('id-ID')}</p>
-//     </div>
-//   </div>
-// );
-
 const CardItem = ({ item }) => {
   const addImage = useImageCustom((state) => state.addImage);
 
