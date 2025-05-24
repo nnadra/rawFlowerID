@@ -7,7 +7,7 @@ const KategoriShop = () => {
   return (
     <div className='lg:flex items-center lg:justify-between mt-10'>
         <div className=''>
-            <button onClick={()=> navigate ("/customBouquet")} className='px-6 w-full lg:w-fit py-3 bg-amber-900 text-lg text-white rounded-lg me-4 mt-4 border-2 border-amber-900 font-bold'>+ Add custom bouquet</button>
+            <button onClick={()=> navigate ("/customBouquet")} className='px-6 w-full lg:w-fit py-3 bg-[#54321A] text-lg text-white rounded-lg me-4 mt-4 border-2 border-amber-900 font-bold'>+ Add custom bouquet</button>
         </div>
 
         <div className='flex items-center'>

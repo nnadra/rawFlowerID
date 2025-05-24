@@ -29,7 +29,9 @@ const BlogPage = () => {
     <div className="bg-white text-[#4E2A1E] font-sans">
       <div className="max-w-7xl mx-auto px-4 py-16">
         <h1 className="text-5xl font-bold mb-4">Blog</h1>
-        <p className="text-lg mb-10 max-w-xl">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
+        <p className="text-lg mb-10 ">Welcome to the RawFlower Blog — your curated corner for all things floral, heartfelt, and beautifully crafted.
+
+Here, we go beyond just petals and stems. Whether you're a flower lover, a gift-giver, or simply someone who finds joy in beauty, our blog offers stories and inspiration rooted in nature, emotion, and creativity.</p>
 
         <div className="grid md:grid-cols-2 gap-6 mb-10">
           {blogPosts.slice(0, 2).map((post, idx) => (
