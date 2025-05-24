@@ -1,11 +1,14 @@
-import React from 'react'
-import { useNavigate} from 'react-router-dom';
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const CardPopular = ({ product }) => {
   const navigate = useNavigate();
+
   return (
-    <div onClick={()=> navigate (`/detailproduk/${product.id}`)} className="p-3 cursor-pointer mx-3 bg-[url('src/assets/image.png')]  hover:scale-105 transition-transform  border-2 border-[#4E2A1E] rounded-2xl mb-5 flex flex-col justify-between min-h-[460px] w-70">
-      
+    <div 
+      onClick={() => navigate(`/detailproduk/${product.id}`)} 
+      className="min-w-[250px] p-3 max-w-sm w-full cursor-pointer bg-[url('src/assets/image.png')] hover:scale-105 transition-transform border-2 border-[#4E2A1E] rounded-2xl flex flex-col justify-between"
+    >
       {/* Gambar Produk */}
       <div className="w-full h-60 relative overflow-hidden rounded-2xl border-2 border-[#4E2A1E]">
         <img
@@ -31,14 +34,14 @@ const CardPopular = ({ product }) => {
           </p>
           <button
             type="button"
-            className="bg-[#4E2A1E] px-3 py-2 lg:w-fit w-45 text-white text-sm rounded-md font-bold"
+            className="bg-[#4E2A1E] px-3 py-2 text-white text-sm rounded-md lg:w-fit w-full lg:mt-0 mt-3 font-bold"
           >
             Detail
           </button>
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default CardPopular
+export default CardPopular;
