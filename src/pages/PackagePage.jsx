@@ -8,9 +8,9 @@ const PackagePage = () => {
       <div className="py-10 px-4">
         <h1 className="text-center text-3xl md:text-5xl font-thin text-[#4E2A1E] mb-10">
           <span className="font-veryvogue italic font-semibold text-6xl md:text-5xl text-[#4E2A1E]">
-            Explore
+            Our 
           </span>{" "}
-          Our Package
+          Package
         </h1>
 
         <div className="flex flex-col md:flex-row justify-center gap-10 md:gap-20">
