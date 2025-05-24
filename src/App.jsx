@@ -1,5 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { Toaster } from 'react-hot-toast';
+import { useCart } from './component/CartContext';
 import Navbar from './component/Navbar';
 import NavbarLogin from './component/NavbarLogin';
 import Banner from './component/Banner';
@@ -12,9 +14,9 @@ import DetailProduct from './pages/DetailProduct';
 import BlogPage from './pages/BlogPage';
 import DetailBlog from './pages/DetailBlog';
 import Custom from './pages/Custom';
-import { useCart } from './component/CartContext';
 import CheckoutDetail from './pages/CheckoutDetail';
 import OrderStatus from './pages/OrderStatus';
+import Cart from './pages/Cart';
 
 const AppContent = () => {
   const location = useLocation();
@@ -27,7 +29,9 @@ const AppContent = () => {
 
   return (
     <div className="bg-[#FFF5E3] min-h-screen overflow-hidden">
+      
       <Banner />
+       <Toaster position="bottom-center" reverseOrder={false} />
 
       {!hideNavbar.includes(location.pathname) && (
         location.pathname === '/'
@@ -43,10 +47,14 @@ const AppContent = () => {
         <Route path="/blogPage" element={<BlogPage />} />
         <Route path="/shop" element={<ShopPage />} />
         <Route path="/detailBlog" element={<DetailBlog />} />
+        <Route path="/cart" element={<Cart />} />
         <Route path="/detailproduk/:id" element={<DetailProduct />} />
-        <Route path="/customBouquet" element={<Custom />} />
-        <Route path="/checkout" element={<CheckoutDetail />} />
-        <Route path="/status" element={<OrderStatus />} />
+        <Route path="/detailBlog/:id" element={<DetailBlog />} />
+        <Route path="/customBouquet" element={<Custom/>} />
+        <Route path="/checkout" element={<CheckoutDetail/>} />
+        <Route path="/status" element={<OrderStatus/>} />
+        <Route path="/detailBlog/:id" element={<DetailBlog/>} />
+        <Route path="/" element={<Home />} />
       </Routes>
     </div>
   );

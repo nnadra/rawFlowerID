@@ -64,10 +64,9 @@ export default function SliderShop() {
               alt={`Slide ${index}`}
               className="w-full h-[400px] object-cover"
             />
-            <div className="absolute inset-0 bg-black/30 flex flex-col justify-center p-6 text-white">
-              <h2 className="lg:text-5xl text-3xl italic font-veryvogue">{slide.title}</h2>
-              {/* <h3 className="lg:text-5xl text-3xl italic mb-5 font-veryvogue">{slide.subtitle}</h3> */}
-              <p className="max-w-lg text-sm">{slide.description}</p>
+            <div className="absolute inset-0 bg-black/40 flex flex-col justify-between p-6 text-white">
+            <h2 className="lg:text-5xl text-4xl mt-12 italic font-veryvogue">{slide.title}</h2>
+            <p className="max-w-lg text-sm py-12">{slide.description}</p>
             </div>
           </div>
         ))}

@@ -32,3 +32,20 @@ export async function sanctumLogin({ email, password }) {
   await axiosClient.get('/sanctum/csrf-cookie');
   return axiosClient.post('/api/login', { email, password });
 }
+
+export const generateTabsFromData = (data) => {
+  const flowerCategories = Object.keys(data.flowers || {});
+
+  const flowerTabs = flowerCategories.map(cat => ({
+    id: cat,
+    label: cat,
+    type: 'flower'
+  }));
+
+  const otherTabs = [
+    { id: 'bows', label: 'Bows', type: 'other' },
+    { id: 'papers', label: 'Papers', type: 'other' }
+  ];
+
+  return [...flowerTabs, ...otherTabs];
+};

@@ -7,18 +7,35 @@ import PicSignin from '../assets/pict-signIn.svg';
 
 export default function SignIn() {
   const navigate = useNavigate();
-  const [email, setEmail]       = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [error, setError]       = useState('');
+  const [error, setError] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await sanctumLogin({ email, password });
-      const { user, access_token } = res.data;
-      localStorage.setItem('user', JSON.stringify(user));
-      localStorage.setItem('token', access_token);
-      navigate('/shop');
+      const response = await fetch('http://127.0.0.1:8000/api/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email, password }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        localStorage.setItem('user', JSON.stringify(data.user));
+        localStorage.setItem('token', data.access_token);
+
+        if (data.user.role === 1) {
+          navigate('/admin/dashboard');
+        } else {
+          navigate('/shop');
+        }
+      } else {
+        setError(data.message || 'Login failed');
+      }
     } catch (err) {
       setError(err.response?.data?.message || 'Login gagal');
     }
@@ -32,10 +49,7 @@ export default function SignIn() {
         <h1 className="text-4xl font-semibold mb-10 text-center">
           Hi, Welcome back! 👋🏻
         </h1>
-        <form
-          onSubmit={handleSubmit}
-          className="w-full max-w-md space-y-5"
-        >
+        <form onSubmit={handleSubmit} className="w-full max-w-md space-y-5">
           {error && <div className="text-red-600">{error}</div>}
 
           <input
@@ -43,10 +57,12 @@ export default function SignIn() {
             placeholder="Email"
             required
             value={email}
-            onChange={e => setEmail(e.target.value)}
+            onChange={(e) => setEmail(e.target.value)}
             className={`px-5 py-4 w-full rounded-2xl transition-colors duration-200 ${
-                email ? 'bg-white text-black border border-[#4E2A1E]' : 'bg-[#E5D5B7] text-[#AE968E]'
-              }`}
+              email
+                ? 'bg-white text-black border border-[#4E2A1E]'
+                : 'bg-[#E5D5B7] text-[#AE968E]'
+            }`}
           />
 
           <input
@@ -54,10 +70,12 @@ export default function SignIn() {
             placeholder="Password"
             required
             value={password}
-            onChange={e => setPassword(e.target.value)}
+            onChange={(e) => setPassword(e.target.value)}
             className={`px-5 py-4 w-full rounded-2xl transition-colors duration-200 ${
-                password ? 'bg-white text-black border border-[#4E2A1E]' : 'bg-[#E5D5B7] text-[#AE968E]'
-              }`}
+              password
+                ? 'bg-white text-black border border-[#4E2A1E]'
+                : 'bg-[#E5D5B7] text-[#AE968E]'
+            }`}
           />
 
           <button
@@ -81,12 +99,12 @@ export default function SignIn() {
 
       {/* KANAN: Ilustrasi */}
       <div className="relative w-[100%] sm:flex hidden">
-              <img
-                src={PicSignin}
-                alt="Pic SignUp"
-                className="absolute w-[97%] h-[97%] object-cover m-3 rounded-lg"
-              />
-            </div>
+        <img
+          src={PicSignin}
+          alt="Pic SignUp"
+          className="absolute w-[97%] h-[97%] object-cover m-3 rounded-lg"
+        />
+      </div>
     </div>
   );
 }

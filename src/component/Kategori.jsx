@@ -18,7 +18,7 @@ const Kategori = () => {
       {categories.map((category, index) => (
         <div
           key={index}
-          className="flex-1 text-center py-4 border-x border-[#33261f] italic text-[1.2rem] text-[#443122] font-medium hover:bg-[#583529] hover:text-white cursor-pointer"
+          className="flex-1 text-center py-4 border-x border-[#33261f] italic lg:text-lg md:text-lg text-sm text-[#443122] font-medium hover:bg-[#583529] hover:text-white cursor-pointer"
         >
           {category.name.split(" ").slice(0, 2).join(" ")}
         </div>

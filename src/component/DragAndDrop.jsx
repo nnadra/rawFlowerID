@@ -92,6 +92,7 @@ const DragAndDrop = () => {
         </Stage>
       </div>
 
+      {/* kiri bawah */}
       <div className="bg-[#FFF5E3] h-[150px] overflow-x-auto border-t-4 border-amber-950">
         <div className="flex items-center gap-4 px-4 py-4">
           {images.map((image, index) => (
