@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation, Navigate } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
 import { useCart } from './component/CartContext';
 import Navbar from './component/Navbar';
@@ -17,6 +17,11 @@ import Custom from './pages/Custom';
 import CheckoutDetail from './pages/CheckoutDetail';
 import OrderStatus from './pages/OrderStatus';
 import Cart from './pages/Cart';
+
+const PrivateRoute = ({ children }) => {
+  const user = JSON.parse(localStorage.getItem('user') || 'null');
+  return user ? children : <Navigate to="/signin" replace />;
+};
 
 const AppContent = () => {
   const location = useLocation();

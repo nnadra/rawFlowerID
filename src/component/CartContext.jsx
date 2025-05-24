@@ -46,7 +46,7 @@ export const CartProvider = ({ children }) => {
   // Update jumlah
   const updateQty = async (itemId, quantity) => {
     try {
-      await axiosClient.patch(`/api/cart/update/${itemId}`, { quantity });
+      await axiosClient.patch('/api/cart/update/${itemId}, { quantity }');
       await fetchCart();
     } catch (err) {
       console.error('Update cart error:', err);
@@ -57,7 +57,7 @@ export const CartProvider = ({ children }) => {
   // Hapus item
   const removeItem = async (itemId) => {
     try {
-      await axiosClient.delete(`/api/cart/remove/${itemId}`);
+      await axiosClient.delete('/api/cart/remove/${itemId}');
       await fetchCart();
     } catch (err) {
       console.error('Remove from cart error:', err);

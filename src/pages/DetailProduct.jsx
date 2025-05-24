@@ -120,6 +120,13 @@ export default function DetailProduct() {
             <div className="flex items-center gap-4 mt-6 ">
               <button
                 onClick={async () => {
+                  const user = JSON.parse(localStorage.getItem('user') || 'null');
+                   if (!user) {
+                    toast.error('Silakan login terlebih dahulu yaa 🥹');
+                    window.location.href = '/signin';
+                    return;
+                  }
+
                   if (!selectedColor) {
                     toast.error('Please select a paper color first!');
                     return;

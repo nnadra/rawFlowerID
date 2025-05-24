@@ -36,7 +36,7 @@ const CartItem = ({ item, onRemove, onIncrease, onDecrease }) => {
         </h3>
         <p className="text-sm text-[#3e1f1f] mb-2">{item.product?.category?.name}</p>
         <p className="text-sm text-[#3e1f1f]">
-          Rp {item.price.toLocaleString("id-ID")}
+          Rp {Number(item.price).toLocaleString("id-ID")}
         </p>
       </div>
 
