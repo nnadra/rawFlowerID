@@ -24,7 +24,7 @@ export default function NavbarLogin() {
         {/*  */}
 
         {/* Desktop NavLinks */}
-        <div className="hidden lg:flex gap-8 text-lg">
+        <div className="hidden lg:flex  text-[#54321A] gap-8 text-lg">
           <NavLink to="/" className="hover:font-bold cursor-pointer">Home</NavLink>
           <NavLink to="/blogPage" className="hover:font-bold cursor-pointer">Blog</NavLink>
           <NavLink to="/shop" className="hover:font-bold cursor-pointer">Shop</NavLink>

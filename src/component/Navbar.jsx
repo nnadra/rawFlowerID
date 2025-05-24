@@ -22,7 +22,7 @@ const Navbar = () => {
   return (
     <div className="relative z-100 px-6 md:px-12 flex items-center justify-between">
       {/* Desktop Menu */}
-      <div className="hidden lg:flex gap-8 text-lg">
+      <div className="hidden lg:flex gap-8 text-lg text-[#54321A] transition-all ease-in-out">
         <NavLink to="/" className="hover:font-bold cursor-pointer">Home</NavLink>
         <NavLink to="/blogPage" className="hover:font-bold cursor-pointer">Blog</NavLink>
         <NavLink to="/shop" className="hover:font-bold cursor-pointer">Shop</NavLink>
@@ -37,7 +37,7 @@ const Navbar = () => {
 
       {/* Mobile Menu (Dropdown) */}
       {isOpen && (
-        <div className="absolute top-full left mt-2 w-40 bg-white shadow-md rounded-lg flex flex-col gap-4 p-4 lg:hidden text-lg z-50">
+        <div className="absolute top-full left mt-2 w-40 bg-white shadow-md rounded-lg flex flex-col gap-4 p-4 text-[#54321A] lg:hidden text-lg z-50">
           <NavLink to="/" className="hover:font-bold" onClick={() => setIsOpen(false)}>Home</NavLink>
           <NavLink to="/blogPage" className="hover:font-bold" onClick={() => setIsOpen(false)}>Blog</NavLink>
           <NavLink to="/shop" className="hover:font-bold" onClick={() => setIsOpen(false)}>Shop</NavLink>
@@ -68,7 +68,7 @@ const Navbar = () => {
               {/* Desktop */}
               <button
                 onClick={() => setDropdownOpen(!dropdownOpen)}
-                className="text-white hidden bg-amber-800 hover:bg-amber-900 focus:ring-4 focus:outline-none focus:ring-amber-950 font-medium rounded-lg text-sm px-5 py-2.5 text-center lg:inline-flex items-center"
+                className="text-white hidden bg-[#54321A] hover:bg-[#3c2a1d] focus:ring-4 focus:outline-none focus:ring-amber-950 font-medium rounded-lg text-sm px-5 py-2.5 text-center lg:inline-flex items-center"
                 type="button"
               >
                 {userName}
