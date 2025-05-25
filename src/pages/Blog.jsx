@@ -1,8 +1,6 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import { useState, useEffect } from "react";
 import { ArrowRight } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-import axiosClient from '../utils/helper';
 import publicAxios from './api/axios';
 
 function Blog() {

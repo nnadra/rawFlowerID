@@ -1,5 +1,3 @@
-import React from 'react'
-import { useNavigate } from "react-router-dom";
 import SliderShop from '../component/SliderShop';
 import KategoriShop from '../component/KategoriShop';
 import CategoryShop from '../component/CategoryShop';

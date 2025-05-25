@@ -1,4 +1,3 @@
-import React from 'react'
 import ImgContact from '../assets/pict-contact.svg'
 import { toast } from "react-hot-toast";
 import emailjs from '@emailjs/browser'

@@ -1,4 +1,3 @@
-import React from 'react'
 import ComponentCustom from '../component/ComponentCustom.jsx'
 import DragAndDrop from '../component/DragAndDrop.jsx'
 

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import CardPopular from '../component/CardPopular';
 import { useNavigate } from "react-router-dom";
 import axios from 'axios';

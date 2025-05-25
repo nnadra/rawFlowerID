@@ -1,5 +1,3 @@
-import React from "react";
-
 const CardProgress = () => {
   return (
     <div className="border-4 border-[#703B2B]/30 lg:p-10 p-5 rounded-2xl text-[#703B2B] lg:mt-20 mt-10">

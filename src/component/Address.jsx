@@ -1,5 +1,4 @@
-import { MapPin, Pin } from 'lucide-react'
-import React from 'react'
+import { MapPin} from 'lucide-react'
 
 const Address = () => {
   return (

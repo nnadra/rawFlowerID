@@ -13,8 +13,6 @@ export default function DropDownShop() {
         })
         .catch((err) => console.error('Gagal fetch kategori:', err));
     }, []);
-  // const options = ["Popular", "Fresh Flower", "Dummy Flower", "Snack Bouquet"];
-
   return (
     <div className="relative w-64">
       <button

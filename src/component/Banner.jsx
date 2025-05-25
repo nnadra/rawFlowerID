@@ -1,5 +1,3 @@
-import React from 'react'
-
 const Banner = () => {
   return (
     <div className="w-full bg-[#E5D5B7] text-[#4E2A1E] py-3 px-4 flex justify-center items-center">

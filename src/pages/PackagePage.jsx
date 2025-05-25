@@ -1,4 +1,3 @@
-import React from "react";
 import spring1 from "../assets/spring-flower.svg";
 import graduation from "../assets/gradu-flower.svg";
 

@@ -1,4 +1,3 @@
-import React from 'react'
 import ProgressBar from '../component/ProgressBar'
 import CardProgress from '../component/CardProgress'
 import { useNavigate } from "react-router-dom";

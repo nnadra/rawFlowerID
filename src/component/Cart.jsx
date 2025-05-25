@@ -9,7 +9,6 @@ const Cart = () => {
     cartItems,
     removeItem,
     updateQty,
-    isLoading,
     isCartOpen,
     setIsCartOpen,
   } = useCart();

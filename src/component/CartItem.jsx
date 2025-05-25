@@ -8,12 +8,6 @@ const CartItem = ({ item, onRemove, onIncrease, onDecrease }) => {
     setLocalQuantity(item.quantity);
   }, [item.quantity]);
 
-  const handleIncrease = () => {
-    const newQty = localQuantity + 1;
-    setLocalQuantity(newQty);
-    onIncrease(item.id, newQty);
-  };
-
   const handleDecrease = () => {
     if (localQuantity <= 1) return;
     const newQty = localQuantity - 1;

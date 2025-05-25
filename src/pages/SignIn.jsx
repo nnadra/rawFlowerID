@@ -1,7 +1,6 @@
 // src/pages/SignIn.jsx
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import axiosClient, { sanctumLogin } from '../utils/helper';
 import Logo from '../assets/logoo.svg';
 import PicSignin from '../assets/pict-signIn.svg';
 

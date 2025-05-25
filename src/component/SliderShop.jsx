@@ -2,27 +2,6 @@ import { useEffect, useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import axios from "axios";
 
-const slides = [
-  {
-    image: "/src/assets/imageslide1.png",
-    title: "When the sun",
-    subtitle: "Refused to Shine",
-    desc: "Lorem ipsum dolor sit amet, I love you but your are jamet...",
-  },
-  {
-    image: "/src//assets/imageslide2.png",
-    title: "Beautiful Morning",
-    subtitle: "With Fresh Flowers",
-    desc: "Vivamus dictum arcu at ultrices semper...",
-  },
-  {
-    image: "/src//assets/imageslide3.png",
-    title: "Bouquet of Dreams",
-    subtitle: "For Special Days",
-    desc: "Nulla congue tempus quam...",
-  },
-];
-
 export default function SliderShop() {
   const [slides, setSlides] = useState([]);
   const [current, setCurrent] = useState(0);

@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import CardShop from './CardShop';
 import DropDownShop from './DropDownShop';
-import publicAxios from '../pages/api/axios';
 import axiosClient from '../utils/helper';
 
 const CategoryShop = () => {

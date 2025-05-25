@@ -1,7 +1,5 @@
 import { ShoppingBasket } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
-import React from 'react'
-
 const menuItems = ["Mini", "Regular"];
 
 const CardShop = ({ product }) => {

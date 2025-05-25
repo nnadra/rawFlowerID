@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import { createContext, useContext, useState, useEffect } from 'react';
 import axiosClient from '../utils/helper';
 
 const CartContext = createContext();
@@ -18,10 +18,6 @@ export const CartProvider = ({ children }) => {
         id: item.id,
         price: item.price,
         quantity: item.quantity,
-        // title: item.product?.name,
-        // description: item.product?.description,
-        // image: item.product?.images?.[0],
-        // category: item.product?.category,
         product: item.product
       })));
     } catch (err) {

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Menu, User, X } from 'lucide-react';
 import { NavLink, useNavigate, useLocation } from 'react-router-dom';
 import Logo from '../assets/logoo.svg';

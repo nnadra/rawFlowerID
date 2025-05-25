@@ -4,7 +4,6 @@ import axiosClient, { generateTabsFromData } from '../utils/helper';
 import { useNavigate } from "react-router-dom";
 
 const CardItem = ({ item }) => {
-  const addImage = useImageCustom((state) => state.addImage);
 
   return (
     <div
@@ -24,7 +23,6 @@ const CardItem = ({ item }) => {
   );
 };
 
-// Komponen konten tab (grid biasa)
 // Komponen konten tab (grid biasa)
 const TabContent = ({ data }) => (
   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 py-4">

@@ -1,4 +1,3 @@
-import React from 'react'
 import PaymentNavbar from '../component/PaymentNavbar'
 import CheckoutProduct from '../component/CheckoutProduct'
 import DetailPayment from '../component/DetailPayment'

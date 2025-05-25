@@ -6,13 +6,6 @@ import useImageCustom from '../data/ImageCustom';
 
 const URLImage = ({ image }) => {
   const [img] = useImage(image.src);
-  // React.useEffect(() => {
-  //   if (!img) {
-  //     console.log("⏳ Masih loading:", image.src);
-  //   } else {
-  //     console.log("✅ Loaded:", image.src);
-  //   }
-  // }, [img, image.src]);
   if (!img) return null;
 
   return (
